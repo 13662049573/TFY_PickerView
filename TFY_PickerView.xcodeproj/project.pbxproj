@@ -156,8 +156,8 @@
 		3655DA9722951E12001CAE7B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3655DA9822951E12001CAE7B /* ViewController.m */,
 				3655DA9922951E12001CAE7B /* ViewController.h */,
+				3655DA9822951E12001CAE7B /* ViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
