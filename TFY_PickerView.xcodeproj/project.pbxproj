@@ -165,20 +165,20 @@
 		3655DA9A22951E12001CAE7B /* TFY_PickerView */ = {
 			isa = PBXGroup;
 			children = (
-				3655DA9B22951E12001CAE7B /* TFY_AddressModel.h */,
-				3655DA9C22951E12001CAE7B /* TFY_StringPickerView.h */,
-				3655DA9D22951E12001CAE7B /* TFY_PickerViewMacro.h */,
-				3655DA9E22951E12001CAE7B /* TFY_AddressPickerView.m */,
 				3655DA9F22951E12001CAE7B /* TFY_PickerHeader.h */,
-				3655DAA022951E12001CAE7B /* NSDate+TFY_PickerView.h */,
-				3655DAA122951E12001CAE7B /* TFY_DatePickerView.m */,
+				3655DA9D22951E12001CAE7B /* TFY_PickerViewMacro.h */,
 				3655DAA222951E12001CAE7B /* TFY_BaseView.h */,
-				3655DAA322951E12001CAE7B /* TFY_CityBundle.bundle */,
-				3655DAA422951E12001CAE7B /* TFY_AddressPickerView.h */,
-				3655DAA522951E12001CAE7B /* TFY_StringPickerView.m */,
-				3655DAA622951E12001CAE7B /* TFY_AddressModel.m */,
 				3655DAA722951E12001CAE7B /* TFY_BaseView.m */,
+				3655DA9B22951E12001CAE7B /* TFY_AddressModel.h */,
+				3655DAA622951E12001CAE7B /* TFY_AddressModel.m */,
 				3655DAA822951E12001CAE7B /* TFY_DatePickerView.h */,
+				3655DAA122951E12001CAE7B /* TFY_DatePickerView.m */,
+				3655DA9C22951E12001CAE7B /* TFY_StringPickerView.h */,
+				3655DAA522951E12001CAE7B /* TFY_StringPickerView.m */,
+				3655DAA422951E12001CAE7B /* TFY_AddressPickerView.h */,
+				3655DA9E22951E12001CAE7B /* TFY_AddressPickerView.m */,
+				3655DAA322951E12001CAE7B /* TFY_CityBundle.bundle */,
+				3655DAA022951E12001CAE7B /* NSDate+TFY_PickerView.h */,
 				3655DAA922951E12001CAE7B /* NSDate+TFY_PickerView.m */,
 			);
 			path = TFY_PickerView;
