@@ -1,0 +1,654 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3655DA6D22951D94001CAE7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3655DA6B22951D94001CAE7B /* Main.storyboard */; };
+		3655DA6F22951D94001CAE7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3655DA6E22951D94001CAE7B /* Assets.xcassets */; };
+		3655DA7222951D94001CAE7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3655DA7022951D94001CAE7B /* LaunchScreen.storyboard */; };
+		3655DA7522951D94001CAE7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655DA7422951D94001CAE7B /* main.m */; };
+		3655DA7F22951D95001CAE7B /* TFY_PickerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655DA7E22951D95001CAE7B /* TFY_PickerViewTests.m */; };
+		3655DA8A22951D95001CAE7B /* TFY_PickerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655DA8922951D95001CAE7B /* TFY_PickerViewUITests.m */; };
+		3655DAAD22951E12001CAE7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655DA9822951E12001CAE7B /* ViewController.m */; };
+		3655DAAE22951E12001CAE7B /* TFY_AddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655DA9E22951E12001CAE7B /* TFY_AddressPickerView.m */; };
+		3655DAAF22951E12001CAE7B /* TFY_DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655DAA122951E12001CAE7B /* TFY_DatePickerView.m */; };
+		3655DAB022951E12001CAE7B /* TFY_CityBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3655DAA322951E12001CAE7B /* TFY_CityBundle.bundle */; };
+		3655DAB122951E12001CAE7B /* TFY_StringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655DAA522951E12001CAE7B /* TFY_StringPickerView.m */; };
+		3655DAB222951E12001CAE7B /* TFY_AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655DAA622951E12001CAE7B /* TFY_AddressModel.m */; };
+		3655DAB322951E12001CAE7B /* TFY_BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655DAA722951E12001CAE7B /* TFY_BaseView.m */; };
+		3655DAB422951E12001CAE7B /* NSDate+TFY_PickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655DAA922951E12001CAE7B /* NSDate+TFY_PickerView.m */; };
+		3655DAB522951E12001CAE7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3655DAAC22951E12001CAE7B /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3655DA7B22951D95001CAE7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3655DA5A22951D93001CAE7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3655DA6122951D93001CAE7B;
+			remoteInfo = TFY_PickerView;
+		};
+		3655DA8622951D95001CAE7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3655DA5A22951D93001CAE7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3655DA6122951D93001CAE7B;
+			remoteInfo = TFY_PickerView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3655DA6222951D93001CAE7B /* TFY_PickerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFY_PickerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3655DA6C22951D94001CAE7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3655DA6E22951D94001CAE7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3655DA7122951D94001CAE7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3655DA7322951D94001CAE7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3655DA7422951D94001CAE7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3655DA7A22951D95001CAE7B /* TFY_PickerViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFY_PickerViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3655DA7E22951D95001CAE7B /* TFY_PickerViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PickerViewTests.m; sourceTree = "<group>"; };
+		3655DA8022951D95001CAE7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3655DA8522951D95001CAE7B /* TFY_PickerViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFY_PickerViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3655DA8922951D95001CAE7B /* TFY_PickerViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFY_PickerViewUITests.m; sourceTree = "<group>"; };
+		3655DA8B22951D95001CAE7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3655DA9822951E12001CAE7B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3655DA9922951E12001CAE7B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3655DA9B22951E12001CAE7B /* TFY_AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_AddressModel.h; sourceTree = "<group>"; };
+		3655DA9C22951E12001CAE7B /* TFY_StringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_StringPickerView.h; sourceTree = "<group>"; };
+		3655DA9D22951E12001CAE7B /* TFY_PickerViewMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PickerViewMacro.h; sourceTree = "<group>"; };
+		3655DA9E22951E12001CAE7B /* TFY_AddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_AddressPickerView.m; sourceTree = "<group>"; };
+		3655DA9F22951E12001CAE7B /* TFY_PickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PickerHeader.h; sourceTree = "<group>"; };
+		3655DAA022951E12001CAE7B /* NSDate+TFY_PickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TFY_PickerView.h"; sourceTree = "<group>"; };
+		3655DAA122951E12001CAE7B /* TFY_DatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_DatePickerView.m; sourceTree = "<group>"; };
+		3655DAA222951E12001CAE7B /* TFY_BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_BaseView.h; sourceTree = "<group>"; };
+		3655DAA322951E12001CAE7B /* TFY_CityBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TFY_CityBundle.bundle; sourceTree = "<group>"; };
+		3655DAA422951E12001CAE7B /* TFY_AddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_AddressPickerView.h; sourceTree = "<group>"; };
+		3655DAA522951E12001CAE7B /* TFY_StringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_StringPickerView.m; sourceTree = "<group>"; };
+		3655DAA622951E12001CAE7B /* TFY_AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_AddressModel.m; sourceTree = "<group>"; };
+		3655DAA722951E12001CAE7B /* TFY_BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFY_BaseView.m; sourceTree = "<group>"; };
+		3655DAA822951E12001CAE7B /* TFY_DatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_DatePickerView.h; sourceTree = "<group>"; };
+		3655DAA922951E12001CAE7B /* NSDate+TFY_PickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TFY_PickerView.m"; sourceTree = "<group>"; };
+		3655DAAB22951E12001CAE7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3655DAAC22951E12001CAE7B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3655DA5F22951D93001CAE7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3655DA7722951D95001CAE7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3655DA8222951D95001CAE7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3655DA5922951D93001CAE7B = {
+			isa = PBXGroup;
+			children = (
+				3655DA6422951D93001CAE7B /* TFY_PickerView */,
+				3655DA7D22951D95001CAE7B /* TFY_PickerViewTests */,
+				3655DA8822951D95001CAE7B /* TFY_PickerViewUITests */,
+				3655DA6322951D93001CAE7B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3655DA6322951D93001CAE7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3655DA6222951D93001CAE7B /* TFY_PickerView.app */,
+				3655DA7A22951D95001CAE7B /* TFY_PickerViewTests.xctest */,
+				3655DA8522951D95001CAE7B /* TFY_PickerViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3655DA6422951D93001CAE7B /* TFY_PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				3655DAAA22951E12001CAE7B /* AppDelegate */,
+				3655DA9722951E12001CAE7B /* Controller */,
+				3655DA9A22951E12001CAE7B /* TFY_PickerView */,
+				3655DA6B22951D94001CAE7B /* Main.storyboard */,
+				3655DA6E22951D94001CAE7B /* Assets.xcassets */,
+				3655DA7022951D94001CAE7B /* LaunchScreen.storyboard */,
+				3655DA7322951D94001CAE7B /* Info.plist */,
+				3655DA7422951D94001CAE7B /* main.m */,
+			);
+			path = TFY_PickerView;
+			sourceTree = "<group>";
+		};
+		3655DA7D22951D95001CAE7B /* TFY_PickerViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				3655DA7E22951D95001CAE7B /* TFY_PickerViewTests.m */,
+				3655DA8022951D95001CAE7B /* Info.plist */,
+			);
+			path = TFY_PickerViewTests;
+			sourceTree = "<group>";
+		};
+		3655DA8822951D95001CAE7B /* TFY_PickerViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3655DA8922951D95001CAE7B /* TFY_PickerViewUITests.m */,
+				3655DA8B22951D95001CAE7B /* Info.plist */,
+			);
+			path = TFY_PickerViewUITests;
+			sourceTree = "<group>";
+		};
+		3655DA9722951E12001CAE7B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3655DA9822951E12001CAE7B /* ViewController.m */,
+				3655DA9922951E12001CAE7B /* ViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3655DA9A22951E12001CAE7B /* TFY_PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				3655DA9B22951E12001CAE7B /* TFY_AddressModel.h */,
+				3655DA9C22951E12001CAE7B /* TFY_StringPickerView.h */,
+				3655DA9D22951E12001CAE7B /* TFY_PickerViewMacro.h */,
+				3655DA9E22951E12001CAE7B /* TFY_AddressPickerView.m */,
+				3655DA9F22951E12001CAE7B /* TFY_PickerHeader.h */,
+				3655DAA022951E12001CAE7B /* NSDate+TFY_PickerView.h */,
+				3655DAA122951E12001CAE7B /* TFY_DatePickerView.m */,
+				3655DAA222951E12001CAE7B /* TFY_BaseView.h */,
+				3655DAA322951E12001CAE7B /* TFY_CityBundle.bundle */,
+				3655DAA422951E12001CAE7B /* TFY_AddressPickerView.h */,
+				3655DAA522951E12001CAE7B /* TFY_StringPickerView.m */,
+				3655DAA622951E12001CAE7B /* TFY_AddressModel.m */,
+				3655DAA722951E12001CAE7B /* TFY_BaseView.m */,
+				3655DAA822951E12001CAE7B /* TFY_DatePickerView.h */,
+				3655DAA922951E12001CAE7B /* NSDate+TFY_PickerView.m */,
+			);
+			path = TFY_PickerView;
+			sourceTree = "<group>";
+		};
+		3655DAAA22951E12001CAE7B /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3655DAAB22951E12001CAE7B /* AppDelegate.h */,
+				3655DAAC22951E12001CAE7B /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3655DA6122951D93001CAE7B /* TFY_PickerView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3655DA8E22951D95001CAE7B /* Build configuration list for PBXNativeTarget "TFY_PickerView" */;
+			buildPhases = (
+				3655DA5E22951D93001CAE7B /* Sources */,
+				3655DA5F22951D93001CAE7B /* Frameworks */,
+				3655DA6022951D93001CAE7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TFY_PickerView;
+			productName = TFY_PickerView;
+			productReference = 3655DA6222951D93001CAE7B /* TFY_PickerView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3655DA7922951D95001CAE7B /* TFY_PickerViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3655DA9122951D95001CAE7B /* Build configuration list for PBXNativeTarget "TFY_PickerViewTests" */;
+			buildPhases = (
+				3655DA7622951D95001CAE7B /* Sources */,
+				3655DA7722951D95001CAE7B /* Frameworks */,
+				3655DA7822951D95001CAE7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3655DA7C22951D95001CAE7B /* PBXTargetDependency */,
+			);
+			name = TFY_PickerViewTests;
+			productName = TFY_PickerViewTests;
+			productReference = 3655DA7A22951D95001CAE7B /* TFY_PickerViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3655DA8422951D95001CAE7B /* TFY_PickerViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3655DA9422951D95001CAE7B /* Build configuration list for PBXNativeTarget "TFY_PickerViewUITests" */;
+			buildPhases = (
+				3655DA8122951D95001CAE7B /* Sources */,
+				3655DA8222951D95001CAE7B /* Frameworks */,
+				3655DA8322951D95001CAE7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3655DA8722951D95001CAE7B /* PBXTargetDependency */,
+			);
+			name = TFY_PickerViewUITests;
+			productName = TFY_PickerViewUITests;
+			productReference = 3655DA8522951D95001CAE7B /* TFY_PickerViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3655DA5A22951D93001CAE7B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "恋机科技";
+				TargetAttributes = {
+					3655DA6122951D93001CAE7B = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					3655DA7922951D95001CAE7B = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 3655DA6122951D93001CAE7B;
+					};
+					3655DA8422951D95001CAE7B = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 3655DA6122951D93001CAE7B;
+					};
+				};
+			};
+			buildConfigurationList = 3655DA5D22951D93001CAE7B /* Build configuration list for PBXProject "TFY_PickerView" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3655DA5922951D93001CAE7B;
+			productRefGroup = 3655DA6322951D93001CAE7B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3655DA6122951D93001CAE7B /* TFY_PickerView */,
+				3655DA7922951D95001CAE7B /* TFY_PickerViewTests */,
+				3655DA8422951D95001CAE7B /* TFY_PickerViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3655DA6022951D93001CAE7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3655DA7222951D94001CAE7B /* LaunchScreen.storyboard in Resources */,
+				3655DA6F22951D94001CAE7B /* Assets.xcassets in Resources */,
+				3655DAB022951E12001CAE7B /* TFY_CityBundle.bundle in Resources */,
+				3655DA6D22951D94001CAE7B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3655DA7822951D95001CAE7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3655DA8322951D95001CAE7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3655DA5E22951D93001CAE7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3655DAB222951E12001CAE7B /* TFY_AddressModel.m in Sources */,
+				3655DAB322951E12001CAE7B /* TFY_BaseView.m in Sources */,
+				3655DAB522951E12001CAE7B /* AppDelegate.m in Sources */,
+				3655DAB122951E12001CAE7B /* TFY_StringPickerView.m in Sources */,
+				3655DAAF22951E12001CAE7B /* TFY_DatePickerView.m in Sources */,
+				3655DAAD22951E12001CAE7B /* ViewController.m in Sources */,
+				3655DAAE22951E12001CAE7B /* TFY_AddressPickerView.m in Sources */,
+				3655DA7522951D94001CAE7B /* main.m in Sources */,
+				3655DAB422951E12001CAE7B /* NSDate+TFY_PickerView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3655DA7622951D95001CAE7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3655DA7F22951D95001CAE7B /* TFY_PickerViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3655DA8122951D95001CAE7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3655DA8A22951D95001CAE7B /* TFY_PickerViewUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3655DA7C22951D95001CAE7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3655DA6122951D93001CAE7B /* TFY_PickerView */;
+			targetProxy = 3655DA7B22951D95001CAE7B /* PBXContainerItemProxy */;
+		};
+		3655DA8722951D95001CAE7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3655DA6122951D93001CAE7B /* TFY_PickerView */;
+			targetProxy = 3655DA8622951D95001CAE7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3655DA6B22951D94001CAE7B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3655DA6C22951D94001CAE7B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3655DA7022951D94001CAE7B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3655DA7122951D94001CAE7B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3655DA8C22951D95001CAE7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3655DA8D22951D95001CAE7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3655DA8F22951D95001CAE7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SEXG86U92J;
+				INFOPLIST_FILE = TFY_PickerView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LianQianLianjiCompany.TFY-PickerView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3655DA9022951D95001CAE7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SEXG86U92J;
+				INFOPLIST_FILE = TFY_PickerView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LianQianLianjiCompany.TFY-PickerView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3655DA9222951D95001CAE7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SEXG86U92J;
+				INFOPLIST_FILE = TFY_PickerViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LianQianLianjiCompany.TFY-PickerViewTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TFY_PickerView.app/TFY_PickerView";
+			};
+			name = Debug;
+		};
+		3655DA9322951D95001CAE7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SEXG86U92J;
+				INFOPLIST_FILE = TFY_PickerViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LianQianLianjiCompany.TFY-PickerViewTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TFY_PickerView.app/TFY_PickerView";
+			};
+			name = Release;
+		};
+		3655DA9522951D95001CAE7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SEXG86U92J;
+				INFOPLIST_FILE = TFY_PickerViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LianQianLianjiCompany.TFY-PickerViewUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TFY_PickerView;
+			};
+			name = Debug;
+		};
+		3655DA9622951D95001CAE7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SEXG86U92J;
+				INFOPLIST_FILE = TFY_PickerViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LianQianLianjiCompany.TFY-PickerViewUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TFY_PickerView;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3655DA5D22951D93001CAE7B /* Build configuration list for PBXProject "TFY_PickerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3655DA8C22951D95001CAE7B /* Debug */,
+				3655DA8D22951D95001CAE7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3655DA8E22951D95001CAE7B /* Build configuration list for PBXNativeTarget "TFY_PickerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3655DA8F22951D95001CAE7B /* Debug */,
+				3655DA9022951D95001CAE7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3655DA9122951D95001CAE7B /* Build configuration list for PBXNativeTarget "TFY_PickerViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3655DA9222951D95001CAE7B /* Debug */,
+				3655DA9322951D95001CAE7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3655DA9422951D95001CAE7B /* Build configuration list for PBXNativeTarget "TFY_PickerViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3655DA9522951D95001CAE7B /* Debug */,
+				3655DA9622951D95001CAE7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3655DA5A22951D93001CAE7B /* Project object */;
+}
