@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "TFY_PickerView"
-  spec.version      = "2.0.0"
+  spec.version      = "2.2.0"
   spec.summary      = "时间选择器，多种选择模式，适合多种选择"
 
   # This description is used to generate tags and improve search results.
