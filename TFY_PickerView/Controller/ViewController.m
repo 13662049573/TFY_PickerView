@@ -24,25 +24,39 @@
     
     for (NSInteger i =0; i<arr.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-        btn.frame=CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 10+i*50);
+        btn.frame=CGRectMake(0, 100+i*60, [UIScreen mainScreen].bounds.size.width, 50);
         btn.backgroundColor = [UIColor whiteColor];
         [btn setTitle:arr[i] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         btn.tag = i;
-        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDragInside];
+        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btn];
     }
 }
 
 -(void)btnClick:(UIButton *)btn{
+    NSLog(@"**************************************");
     if (btn.tag==0) {
-        
+        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:@[@"男",@"女",@"渣男",@"渣女",@"小姐姐",@"小哥哥",@"其他"] defaultSelValue:@"渣男" resultBlock:^(id  _Nonnull selectValue) {
+            
+            NSLog(@"普通选择器1---%@",selectValue);
+            
+        }];
     }
     else if (btn.tag==1){
-        
+        NSArray *dataSource = @[@[@"第1周", @"第2周", @"第3周", @"第4周", @"第5周", @"第6周", @"第7周"], @[@"第1天", @"第2天", @"第3天", @"第4天", @"第5天", @"第6天", @"第7天"]];
+        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:dataSource defaultSelValue:@"第5周" isAutoSelect:YES themeColor:[UIColor greenColor] resultBlock:^(id  _Nonnull selectValue) {
+            NSLog(@"普通选择器2自定义颜色---%@",selectValue[0]);
+        }];
     }
     else if (btn.tag==2){
-        
+        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:@[@"男",@"女",@"渣男",@"渣女",@"小姐姐",@"小哥哥",@"其他"] defaultSelValue:@"渣男" isAutoSelect:NO themeColor:[UIColor blueColor] resultBlock:^(id  _Nonnull selectValue) {
+            
+            NSLog(@"普通选择器3自定义颜色---%@",selectValue);
+            
+        } cancelBlock:^{
+            NSLog(@"普通选择器3自定义颜色---%@",@"cancel");
+        }];
     }
     else if (btn.tag==3){
         
