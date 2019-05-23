@@ -7,24 +7,23 @@
 //  使用方法如下：
 /*
  第一种
- [TFY_StringPickerView showStringPickerWithTitle:@"宝宝性别" dataSource:@[@"男", @"女", @"其他"] defaultSelValue:textField.text resultBlock:^(id selectValue) {
- textField.text = self.infoModel.genderStr = selectValue;
+ [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:@[@"男",@"女",@"渣男",@"渣女",@"小姐姐",@"小哥哥",@"其他"] defaultSelValue:@"渣男" resultBlock:^(id  _Nonnull selectValue) {
+ 
+ NSLog(@"普通选择器1---%@",selectValue);
+ 
  }];
  第二种
- NSString *dataSource = @"testData1.plist"; // 可以将数据源（上面的数组）放到plist文件中
- [TFY_StringPickerView showStringPickerWithTitle:@"学历" dataSource:dataSource defaultSelValue:textField.text isAutoSelect:YES themeColor:nil resultBlock:^(id selectValue) {
- textField.text = self.infoModel.educationStr = selectValue;
+ [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:@[@"男",@"女",@"渣男",@"渣女",@"小姐姐",@"小哥哥",@"其他"] defaultSelValue:@"渣男" isAutoSelect:NO themeColor:[UIColor blueColor] resultBlock:^(id  _Nonnull selectValue) {
+ 
+ NSLog(@"普通选择器3自定义颜色---%@",selectValue);
+ 
  } cancelBlock:^{
- NSLog(@"点击了背景视图或取消按钮");
+ NSLog(@"普通选择器3自定义颜色---%@",@"cancel");
  }];
  第三种
  NSArray *dataSource = @[@[@"第1周", @"第2周", @"第3周", @"第4周", @"第5周", @"第6周", @"第7周"], @[@"第1天", @"第2天", @"第3天", @"第4天", @"第5天", @"第6天", @"第7天"]];
- // NSString *dataSource = @"testData3.plist"; // 可以将数据源（上面的数组）放到plist文件中
- NSArray *defaultSelArr = [textField.text componentsSeparatedByString:@"，"];
- [TFY_StringPickerView showStringPickerWithTitle:@"自定义多列字符串" dataSource:dataSource defaultSelValue:defaultSelArr isAutoSelect:YES themeColor:TFY_RGB_HEX(0xff7998, 1.0f) resultBlock:^(id selectValue) {
- textField.text = self.infoModel.otherStr = [NSString stringWithFormat:@"%@，%@", selectValue[0], selectValue[1]];
- } cancelBlock:^{
- NSLog(@"点击了背景视图或取消按钮");
+ [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:dataSource defaultSelValue:@"第5周" isAutoSelect:YES themeColor:[UIColor greenColor] resultBlock:^(id  _Nonnull selectValue) {
+ NSLog(@"普通选择器2自定义颜色---%@",selectValue[0]);
  }];
  */
 

@@ -6,18 +6,17 @@
 //  Copyright © 2019 恋机科技. All rights reserved.
 //  使用方法
 /*
- 第一种：
- [TFY_AddressPickerView showAddressPickerWithDefaultSelected:@[@"浙江省", @"杭州市", @"西湖区"] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
- 
- NSLog(@"%@ %@ %@",province.code,city.code,area.code);
- }];
- 第二种
- NSArray *defaultSelArr = [textField.text componentsSeparatedByString:@" "];
- // NSArray *dataSource = [weakSelf getAddressDataSource];  //从外部传入地区数据源
- NSArray *dataSource = nil; // dataSource 为空时，就默认使用框架内部提供的数据源
- [TFY_AddressPickerView showAddressPickerWithShowType:BRAddressPickerModeArea dataSource:dataSource defaultSelected:defaultSelArr isAutoSelect:YES themeColor:nil resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
+ 第三种：
+ [TFY_AddressPickerView showAddressPickerWithShowType:TFY_AddressPickerModeCity defaultSelected:@[@"杭州市", @"西湖区"] isAutoSelect:NO themeColor:[UIColor redColor] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
+ NSLog(@"地址选择器3--%@ %@ %@",province.code,city.code,area.code);
  } cancelBlock:^{
- NSLog(@"点击了背景视图或取消按钮");
+ 
+ }];
+ 第四种
+ [TFY_AddressPickerView showAddressPickerWithShowType:TFY_AddressPickerModeCity dataSource:nil defaultSelected:@[@"浙江省", @"杭州市", @"西湖区"] isAutoSelect:NO themeColor:[UIColor blueColor] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
+ NSLog(@"地址选择器4--%@ %@ %@",province.code,city.code,area.code);
+ } cancelBlock:^{
+ 
  }];
  */
 
