@@ -31,6 +31,30 @@
     // 添加分割线
     [self.topView addSubview:self.lineView];
 }
+- (void)show{
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [[self class] animationAlert:self.alertView];
+}
+- (void)dismiss{
+    [self removeFromSuperview];
+}
+
++(void) animationAlert:(UIView *)view
+{
+    CAKeyframeAnimation *popAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    popAnimation.duration = 0.6;
+    popAnimation.values = @[[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.01f, 0.01f, 1.0f)],
+                            [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1f, 1.1f, 1.0f)],
+                            [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.9f, 0.9f, 1.0f)],
+                            [NSValue valueWithCATransform3D:CATransform3DIdentity]];
+    popAnimation.keyTimes = @[@0.0f, @0.5f, @0.75f, @1.0f];
+    popAnimation.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+                                     [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+                                     [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [view.layer addAnimation:popAnimation forKey:nil];
+    
+}
+
 
 #pragma mark - 背景遮罩图层
 - (UIView *)backgroundView {
