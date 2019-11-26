@@ -115,7 +115,7 @@
         _rightBtn.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
         _rightBtn.titleLabel.font = [UIFont systemFontOfSize:15.0f * TFY_kScaleFit];
         [_rightBtn setTitleColor:TFY_kDefaultThemeColor forState:UIControlStateNormal];
-        [_rightBtn setTitle:@"确定" forState:UIControlStateNormal];
+        [_rightBtn setTitle:@"完成" forState:UIControlStateNormal];
         [_rightBtn addTarget:self action:@selector(clickRightBtn) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rightBtn;
@@ -146,18 +146,18 @@
 }
 #pragma mark - 自定义主题颜色
 - (void)setupThemeColor:(UIColor *)themeColor {
-    self.leftBtn.layer.cornerRadius = 6.0f;
-    self.leftBtn.layer.borderColor = themeColor.CGColor;
-    self.leftBtn.layer.borderWidth = 1.0f;
-    self.leftBtn.layer.masksToBounds = YES;
-    [self.leftBtn setTitleColor:themeColor forState:UIControlStateNormal];
+//    self.leftBtn.layer.cornerRadius = 6.0f;
+//    self.leftBtn.layer.borderColor = themeColor.CGColor;
+//    self.leftBtn.layer.borderWidth = 1.0f;
+//    self.leftBtn.layer.masksToBounds = YES;
+//    [self.leftBtn setTitleColor:themeColor forState:UIControlStateNormal];
     
-    self.rightBtn.backgroundColor = themeColor;
-    self.rightBtn.layer.cornerRadius = 6.0f;
-    self.rightBtn.layer.masksToBounds = YES;
-    [self.rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    self.rightBtn.backgroundColor = themeColor;
+//    self.rightBtn.layer.cornerRadius = 6.0f;
+//    self.rightBtn.layer.masksToBounds = YES;
+    [self.rightBtn setTitleColor:themeColor forState:UIControlStateNormal];
     
-    self.titleLabel.textColor = [themeColor colorWithAlphaComponent:0.8f];
+//    self.titleLabel.textColor = [themeColor colorWithAlphaComponent:0.8f];
 }
 
 #pragma mark - 点击背景遮罩图层事件

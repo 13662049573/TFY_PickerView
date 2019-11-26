@@ -44,8 +44,23 @@
         }];
     }
     else if (btn.tag==1){
-        NSArray *dataSource = @[@[@"第1周", @"第2周", @"第3周", @"第4周", @"第5周", @"第6周", @"第7周"], @[@"第1天", @"第2天", @"第3天", @"第4天", @"第5天", @"第6天", @"第7天"]];
-        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:dataSource defaultSelValue:@"第5周" isAutoSelect:YES themeColor:[UIColor greenColor] resultBlock:^(id  _Nonnull selectValue) {
+       NSMutableArray *array2 = [NSMutableArray array];
+        NSMutableArray *array3 = [NSMutableArray array];
+         NSMutableArray *array4 = [NSMutableArray array];
+        for (NSInteger i = 30; i<=150; i++) {
+            NSString *string = [NSString stringWithFormat:@"%ld",i];
+            [array2 addObject:string];
+        }
+        for (NSInteger i = 0; i<=200; i++) {
+            NSString *string = [NSString stringWithFormat:@".%ldKG",i];
+            [array3 addObject:string];
+        }
+        for (NSInteger i = 0; i<=30; i++) {
+            NSString *string = [NSString stringWithFormat:@".%ldKG",i];
+            [array4 addObject:string];
+        }
+        NSMutableArray *array = [NSMutableArray arrayWithObjects: array2,array3,array4, nil];
+        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:array defaultSelValue:@"50.0KG" isAutoSelect:YES themeColor:[UIColor greenColor] resultBlock:^(id  _Nonnull selectValue) {
             NSLog(@"普通选择器2自定义颜色---%@",selectValue[0]);
         }];
     }

@@ -179,7 +179,7 @@ typedef NS_ENUM(NSInteger, TFY_StringPickerMode) {
 #pragma mark - 字符串选择器
 - (UIPickerView *)pickerView {
     if (!_pickerView) {
-        _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight + 0.5, self.alertView.frame.size.width, TFY_kPickerHeight)];
+        _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight + 0.5, self.alertView.bounds.size.width, TFY_kPickerHeight)];
         _pickerView.backgroundColor = [UIColor whiteColor];
         // 设置子视图的大小随着父视图变化
         _pickerView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
@@ -271,16 +271,16 @@ typedef NS_ENUM(NSInteger, TFY_StringPickerMode) {
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentCenter;
     //label.textColor = [UIColor redColor];
-    label.font = [UIFont systemFontOfSize:18.0f * TFY_kScaleFit];
+    label.font = [UIFont systemFontOfSize:16.0f * TFY_kScaleFit];
     // 字体自适应属性
     label.adjustsFontSizeToFitWidth = YES;
     // 自适应最小字体缩放比例
     label.minimumScaleFactor = 0.5f;
     if (self.type == TFY_StringPickerComponentSingle) {
-        label.frame = CGRectMake(0, 0, self.alertView.frame.size.width, 35.0f * TFY_kScaleFit);
+        label.frame = CGRectMake(0, 0, self.alertView.bounds.size.width, 35.0f * TFY_kScaleFit);
         label.text = self.dataSourceArr[row];
     } else if (self.type == TFY_StringPickerComponentMore) {
-        label.frame = CGRectMake(0, 0, self.alertView.frame.size.width / [self.dataSourceArr[component] count], 35.0f * TFY_kScaleFit);
+        label.frame = CGRectMake(0, 0, self.alertView.bounds.size.width / self.dataSourceArr.count, 35.0f * TFY_kScaleFit);
         label.text = self.dataSourceArr[component][row];
     }
     
