@@ -46,7 +46,7 @@
     else if (btn.tag==1){
        NSMutableArray *array2 = [NSMutableArray array];
         NSMutableArray *array3 = [NSMutableArray array];
-         NSMutableArray *array4 = [NSMutableArray array];
+         
         for (NSInteger i = 30; i<=150; i++) {
             NSString *string = [NSString stringWithFormat:@"%ld",i];
             [array2 addObject:string];
@@ -55,13 +55,9 @@
             NSString *string = [NSString stringWithFormat:@".%ldKG",i];
             [array3 addObject:string];
         }
-        for (NSInteger i = 0; i<=30; i++) {
-            NSString *string = [NSString stringWithFormat:@".%ldKG",i];
-            [array4 addObject:string];
-        }
-        NSMutableArray *array = [NSMutableArray arrayWithObjects: array2,array3,array4, nil];
-        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:array defaultSelValue:@"50.0KG" isAutoSelect:YES themeColor:[UIColor greenColor] resultBlock:^(id  _Nonnull selectValue) {
-            NSLog(@"普通选择器2自定义颜色---%@",selectValue[0]);
+        NSMutableArray *array = [NSMutableArray arrayWithObjects: array2,array3, nil];
+        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:array defaultSelValue:@"50" isAutoSelect:YES themeColor:[UIColor greenColor] resultBlock:^(id  _Nonnull selectValue) {
+            NSLog(@"普通选择器2自定义颜色---%@  -- %@",selectValue[0],selectValue[1]);
         }];
     }
     else if (btn.tag==2){
