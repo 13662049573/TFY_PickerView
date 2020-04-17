@@ -20,7 +20,7 @@
     
     self.view.backgroundColor = [UIColor orangeColor];
     
-    NSArray *arr = @[@"普通选择器1",@"普通选择器2",@"普通选择器3",@"时间选择器1",@"时间选择器2",@"时间选择器3",@"地址选择器1",@"地址选择器2",@"地址选择器3",@"地址选择器4"];
+    NSArray *arr = @[@"普通选择器1",@"普通选择器2",@"普通选择器3",@"时间选择器1",@"时间选择器2",@"时间选择器3",@"地址选择器1",@"地址选择器2",@"地址选择器3",@"地址选择器4",@"自定义数据模型"];
     
     for (NSInteger i =0; i<arr.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -109,8 +109,20 @@
             
         }];
     }else if (btn.tag==9){
-        [TFY_AddressPickerView showAddressPickerWithShowType:TFY_AddressPickerModeCity dataSource:@[] defaultSelected:@[@"浙江省", @"杭州市", @"西湖区"] isAutoSelect:NO themeColor:[UIColor blueColor] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
-            NSLog(@"地址选择器4--%@ %@ %@",province.code,city.code,area.code);
+        [TFY_AddressPickerView showAddressPickerWithShowType:TFY_AddressPickerModeCity dataSource:@[] defaultSelected:@[@"36", @".50"] isAutoSelect:NO themeColor:[UIColor blueColor] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
+            
+            NSLog(@"地址选择器4--%@ %@ %@",province.name,city.name,area.name);
+            
+        } cancelBlock:^{
+            
+        }];
+    }
+    else if(btn.tag ==10){
+        
+        [TFY_CustomPickerView showpathForResource:@"TFY_Temp" CustomPickerWithShowType:TFY_PickerModeTwoGroup dataSource:@[] defaultSelected:@[] isAutoSelect:NO themeColor:[UIColor yellowColor] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
+            
+            NSLog(@"自定义--%@ %@ %@",province.name,city.name,area.name);
+            
         } cancelBlock:^{
             
         }];

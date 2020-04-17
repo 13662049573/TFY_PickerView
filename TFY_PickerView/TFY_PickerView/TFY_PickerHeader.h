@@ -12,6 +12,6 @@
 #import "TFY_StringPickerView.h"
 #import "TFY_DatePickerView.h"
 #import "TFY_AddressPickerView.h"
-
+#import "TFY_CustomPickerView.h"
 
 #endif /* TFY_PickerHeader_h */
