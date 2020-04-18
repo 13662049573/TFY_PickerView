@@ -46,7 +46,7 @@
 @property (nonatomic, copy) TFY_CustomResultBlock resultBlock;
 // 取消选择的回调
 @property (nonatomic, copy) TFY_CustomCancelBlock cancelBlock;
-@property (nonatomic, copy)NSString *resource;
+@property (nonatomic, copy)NSString *resource,*title_str;
 @end
 
 @implementation TFY_CustomPickerView
@@ -55,9 +55,9 @@
 /**
  *  显示地址选择器（支持 设置选择器类型、传入地区数据源、设置自动选择、自定义主题颜色、取消选择的回调）
  */
-+ (void)showpathForResource:(NSString *)resource CustomPickerWithShowType:(TFY_CustomPickerMode)showType dataSource:(NSArray *)dataSource defaultSelected:(NSArray *)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock{
++ (void)showTitle:(NSString *)title pathForResource:(NSString *)resource CustomPickerWithShowType:(TFY_CustomPickerMode)showType dataSource:(NSArray *)dataSource defaultSelected:(NSArray *)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock{
     
-    TFY_CustomPickerView *addressPickerView = [[TFY_CustomPickerView alloc] initWithpathForResource:resource ShowType:showType dataSource:dataSource defaultSelected:defaultSelectedArr isAutoSelect:isAutoSelect themeColor:themeColor resultBlock:resultBlock cancelBlock:cancelBlock];
+    TFY_CustomPickerView *addressPickerView = [[TFY_CustomPickerView alloc] initWithTitle:title pathForResource:resource ShowType:showType dataSource:dataSource defaultSelected:defaultSelectedArr isAutoSelect:isAutoSelect themeColor:themeColor resultBlock:resultBlock cancelBlock:cancelBlock];
     NSAssert(addressPickerView->_isDataSourceValid, @"数据源不合法！参数异常，请检查地址选择器的数据源是否有误");
     if (addressPickerView->_isDataSourceValid) {
         [addressPickerView showWithAnimation:YES];
@@ -65,8 +65,9 @@
 }
 
 #pragma mark - 初始化地址选择器
-- (instancetype)initWithpathForResource:(NSString *)resource ShowType:(TFY_CustomPickerMode)showType dataSource:(NSArray *)dataSource defaultSelected:(NSArray *)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock {
+- (instancetype)initWithTitle:(NSString *)title pathForResource:(NSString *)resource ShowType:(TFY_CustomPickerMode)showType dataSource:(NSArray *)dataSource defaultSelected:(NSArray *)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock {
     if (self = [super init]) {
+        self.title_str = title;
         self.resource = resource;
         self.showType = showType;
         self.dataSource = dataSource;
@@ -251,11 +252,11 @@
 - (void)initUI {
     [super initUI];
     if (self.showType == TFY_PickerModeOneGroup) {
-        self.titleLabel.text = @"请选择一组数组";
+        self.titleLabel.text = self.title_str==nil?@"请选择一组数组":self.title_str;
     } else if (self.showType == TFY_PickerModeTwoGroup) {
-        self.titleLabel.text = @"请选择二组数组";
+        self.titleLabel.text = self.title_str==nil?@"请选择二组数组":self.title_str;
     } else {
-        self.titleLabel.text = @"请选择三组数组";
+        self.titleLabel.text = self.title_str==nil?@"请选择三组数组":self.title_str;
     }
     // 添加时间选择器
     [self.alertView addSubview:self.pickerView];

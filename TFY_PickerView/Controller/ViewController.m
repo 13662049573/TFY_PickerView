@@ -119,7 +119,7 @@
     }
     else if(btn.tag ==10){
         
-        [TFY_CustomPickerView showpathForResource:@"TFY_Temp" CustomPickerWithShowType:TFY_PickerModeTwoGroup dataSource:@[] defaultSelected:@[] isAutoSelect:NO themeColor:[UIColor yellowColor] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
+        [TFY_CustomPickerView showTitle:@"温度选择" pathForResource:@"TFY_Temp" CustomPickerWithShowType:TFY_PickerModeTwoGroup dataSource:@[] defaultSelected:@[] isAutoSelect:NO themeColor:[UIColor redColor] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
             
             NSLog(@"自定义--%@ %@ %@",province.name,city.name,area.name);
             

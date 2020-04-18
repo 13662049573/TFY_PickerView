@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 自定的文件必须放在--TFY_CityBundle.bundle---里面 模型根据 TFY_City.plist 模型修改，不然没用
  *  显示地址选择器（支持 设置选择器类型、传入地区数据源、设置自动选择、自定义主题颜色、取消选择的回调）
  */
-+ (void)showpathForResource:(NSString *)resource CustomPickerWithShowType:(TFY_CustomPickerMode)showType dataSource:(NSArray *)dataSource defaultSelected:(NSArray *)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock;
++ (void)showTitle:(NSString *)title pathForResource:(NSString *)resource CustomPickerWithShowType:(TFY_CustomPickerMode)showType dataSource:(NSArray *)dataSource defaultSelected:(NSArray *)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock;
 
 @end
 

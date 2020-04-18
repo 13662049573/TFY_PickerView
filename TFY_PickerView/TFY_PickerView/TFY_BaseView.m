@@ -76,6 +76,14 @@
         _alertView.backgroundColor = [UIColor whiteColor];
         // 设置子视图的大小随着父视图变化
         _alertView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_alertView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(24,24)];
+        //创建 layer
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+        maskLayer.frame = _alertView.bounds;
+        //赋值
+        maskLayer.path = maskPath.CGPath;
+        _alertView.layer.mask = maskLayer;
+        
     }
     return _alertView;
 }
@@ -87,6 +95,13 @@
         _topView.backgroundColor = TFY_kBRToolBarColor;
         // 设置子视图的大小随着父视图变化
         _topView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_topView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(24,24)];
+        //创建 layer
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+        maskLayer.frame = _topView.bounds;
+        //赋值
+        maskLayer.path = maskPath.CGPath;
+        _topView.layer.mask = maskLayer;
     }
     return _topView;
 }
