@@ -251,11 +251,11 @@
 - (void)initUI {
     [super initUI];
     if (self.showType == TFY_PickerModeOneGroup) {
-        self.titleLabel.text = self.title_str==nil?@"请选择一组数组":self.title_str;
+        self.titleLabel.text = self.title_str==nil?@"选择一":self.title_str;
     } else if (self.showType == TFY_PickerModeTwoGroup) {
-        self.titleLabel.text = self.title_str==nil?@"请选择二组数组":self.title_str;
+        self.titleLabel.text = self.title_str==nil?@"选择二":self.title_str;
     } else {
-        self.titleLabel.text = self.title_str==nil?@"请选择三组数组":self.title_str;
+        self.titleLabel.text = self.title_str==nil?@"选择三":self.title_str;
     }
     // 添加时间选择器
     [self.alertView addSubview:self.pickerView];
