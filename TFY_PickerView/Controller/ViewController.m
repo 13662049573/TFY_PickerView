@@ -56,7 +56,7 @@
             [array3 addObject:string];
         }
         NSMutableArray *array = [NSMutableArray arrayWithObjects: array2,array3, nil];
-        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:array defaultSelValue:@"50" isAutoSelect:YES themeColor:[UIColor greenColor] resultBlock:^(id  _Nonnull selectValue) {
+        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:array defaultSelValue:@[@"50",@".50"] isAutoSelect:YES themeColor:[UIColor greenColor] resultBlock:^(id  _Nonnull selectValue) {
             NSLog(@"普通选择器2自定义颜色---%@  -- %@",selectValue[0],selectValue[1]);
         }];
     }
