@@ -52,24 +52,24 @@
 @implementation TFY_AddressPickerView
 
 #pragma mark - 1.显示地址选择器
-+ (void)showAddressPickerWithDefaultSelected:(NSArray *)defaultSelectedArr
++ (void)showAddressPickerWithDefaultSelected:(NSArray *_Nullable)defaultSelectedArr
                                  resultBlock:(TFY_AddressResultBlock)resultBlock {
     [self showAddressPickerWithShowType:TFY_AddressPickerModeArea dataSource:nil defaultSelected:defaultSelectedArr isAutoSelect:NO themeColor:nil resultBlock:resultBlock cancelBlock:nil];
 }
 
 #pragma mark - 2.显示地址选择器（支持 设置自动选择 和 自定义主题颜色）
-+ (void)showAddressPickerWithDefaultSelected:(NSArray *)defaultSelectedArr
++ (void)showAddressPickerWithDefaultSelected:(NSArray *_Nullable)defaultSelectedArr
                                 isAutoSelect:(BOOL)isAutoSelect
-                                  themeColor:(UIColor *)themeColor
+                                  themeColor:(UIColor *_Nullable)themeColor
                                  resultBlock:(TFY_AddressResultBlock)resultBlock {
     [self showAddressPickerWithShowType:TFY_AddressPickerModeArea dataSource:nil defaultSelected:defaultSelectedArr isAutoSelect:isAutoSelect themeColor:themeColor resultBlock:resultBlock cancelBlock:nil];
 }
 
 #pragma mark - 3.显示地址选择器（支持 设置选择器类型、设置自动选择、自定义主题颜色、取消选择的回调）
 + (void)showAddressPickerWithShowType:(TFY_AddressPickerMode)showType
-                      defaultSelected:(NSArray *)defaultSelectedArr
+                      defaultSelected:(NSArray *_Nullable)defaultSelectedArr
                          isAutoSelect:(BOOL)isAutoSelect
-                           themeColor:(UIColor *)themeColor
+                           themeColor:(UIColor *_Nullable)themeColor
                           resultBlock:(TFY_AddressResultBlock)resultBlock
                           cancelBlock:(TFY_AddressCancelBlock)cancelBlock {
     [self showAddressPickerWithShowType:showType dataSource:nil defaultSelected:defaultSelectedArr isAutoSelect:isAutoSelect themeColor:themeColor resultBlock:resultBlock cancelBlock:cancelBlock];
@@ -77,10 +77,10 @@
 
 #pragma mark - 4.显示地址选择器（支持 设置选择器类型、传入地区数据源、设置自动选择、自定义主题颜色、取消选择的回调）
 + (void)showAddressPickerWithShowType:(TFY_AddressPickerMode)showType
-                           dataSource:(NSArray *)dataSource
-                      defaultSelected:(NSArray *)defaultSelectedArr
+                           dataSource:(NSArray *_Nullable)dataSource
+                      defaultSelected:(NSArray *_Nullable)defaultSelectedArr
                          isAutoSelect:(BOOL)isAutoSelect
-                           themeColor:(UIColor *)themeColor
+                           themeColor:(UIColor *_Nullable)themeColor
                           resultBlock:(TFY_AddressResultBlock)resultBlock
                           cancelBlock:(TFY_AddressCancelBlock)cancelBlock {
     TFY_AddressPickerView *addressPickerView = [[TFY_AddressPickerView alloc] initWithShowType:showType dataSource:dataSource defaultSelected:defaultSelectedArr isAutoSelect:isAutoSelect themeColor:themeColor resultBlock:resultBlock cancelBlock:cancelBlock];
@@ -92,10 +92,10 @@
 
 #pragma mark - 初始化地址选择器
 - (instancetype)initWithShowType:(TFY_AddressPickerMode)showType
-                      dataSource:(NSArray *)dataSource
-                 defaultSelected:(NSArray *)defaultSelectedArr
+                      dataSource:(NSArray *_Nullable)dataSource
+                 defaultSelected:(NSArray *_Nullable)defaultSelectedArr
                     isAutoSelect:(BOOL)isAutoSelect
-                      themeColor:(UIColor *)themeColor
+                      themeColor:(UIColor *_Nullable)themeColor
                      resultBlock:(TFY_AddressResultBlock)resultBlock
                      cancelBlock:(TFY_AddressCancelBlock)cancelBlock {
     if (self = [super init]) {

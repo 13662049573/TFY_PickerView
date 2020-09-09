@@ -52,38 +52,38 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerMode) {
 };
 
 
-typedef void(^TFY_DateResultBlock)(NSString *selectValue);
-typedef void(^TFY_DateCancelBlock)(void);
+typedef void(^ _Nullable TFY_DateResultBlock)(NSString *selectValue);
+typedef void(^ _Nullable TFY_DateCancelBlock)(void);
 
 @interface TFY_DatePickerView : TFY_BaseView
 /**
  * title 标题 type 类型（时间、日期、日期和时间、倒计时） defaultSelValue  默认选中的时间（为空，默认选中现在的时间）minDateStr       最小时间（如：2015-08-28 00:00:00），可为空 maxDateStr 最大时间（如：2018-05-05 00:00:00），可为空 isAutoSelect     是否自动选择，即选择完(滚动完)执行结果回调，传选择的结果值
  */
-+ (void)showDatePickerWithTitle:(NSString *)title
++ (void)showDatePickerWithTitle:(NSString *_Nullable)title
                        dateType:(TFY_DatePickerMode)dateType
-                defaultSelValue:(NSString *)defaultSelValue
+                defaultSelValue:(NSString *_Nullable)defaultSelValue
                     resultBlock:(TFY_DateResultBlock)resultBlock;
 /**
  * title 标题  dateType 日期显示类型  defaultSelValue  默认选中的时间（值为空/值格式错误时，默认就选中现在的时间）minDate 最小时间，可为空（请使用 NSDate+TFY_PickerView 分类中和显示类型格式对应的方法创建 minDate） maxDate 最大时间，可为空（请使用 NSDate+TFY_PickerView 分类中和显示类型格式对应的方法创建 maxDate） isAutoSelect     是否自动选择，即选择完(滚动完)执行结果回调，传选择的结果值 themeColor  自定义主题颜色
  */
-+ (void)showDatePickerWithTitle:(NSString *)title
++ (void)showDatePickerWithTitle:(NSString *_Nullable)title
                        dateType:(TFY_DatePickerMode)dateType
-                defaultSelValue:(NSString *)defaultSelValue
-                        minDate:(NSDate *)minDate
-                        maxDate:(NSDate *)maxDate
+                defaultSelValue:(NSString *_Nullable)defaultSelValue
+                        minDate:(NSDate *_Nullable)minDate
+                        maxDate:(NSDate *_Nullable)maxDate
                    isAutoSelect:(BOOL)isAutoSelect
-                     themeColor:(UIColor *)themeColor
+                     themeColor:(UIColor *_Nullable)themeColor
                     resultBlock:(TFY_DateResultBlock)resultBlock;
 /**
  * title 标题  dateType 日期显示类型  defaultSelValue  默认选中的时间（值为空/值格式错误时，默认就选中现在的时间）minDate 最小时间，可为空（请使用 NSDate+TFY_PickerView 分类中和显示类型格式对应的方法创建 minDate） maxDate 最大时间，可为空（请使用 NSDate+TFY_PickerView 分类中和显示类型格式对应的方法创建 maxDate） isAutoSelect     是否自动选择，即选择完(滚动完)执行结果回调，传选择的结果值 themeColor  自定义主题颜色
  */
-+ (void)showDatePickerWithTitle:(NSString *)title
++ (void)showDatePickerWithTitle:(NSString *_Nullable)title
                        dateType:(TFY_DatePickerMode)dateType
-                defaultSelValue:(NSString *)defaultSelValue
-                        minDate:(NSDate *)minDate
-                        maxDate:(NSDate *)maxDate
+                defaultSelValue:(NSString *_Nullable)defaultSelValue
+                        minDate:(NSDate *_Nullable)minDate
+                        maxDate:(NSDate *_Nullable)maxDate
                    isAutoSelect:(BOOL)isAutoSelect
-                     themeColor:(UIColor *)themeColor
+                     themeColor:(UIColor *_Nullable)themeColor
                     resultBlock:(TFY_DateResultBlock)resultBlock
                     cancelBlock:(TFY_DateCancelBlock)cancelBlock;
 @end

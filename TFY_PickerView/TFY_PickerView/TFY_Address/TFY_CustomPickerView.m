@@ -55,7 +55,7 @@
 /**
  *  显示地址选择器（支持 设置选择器类型、传入地区数据源、设置自动选择、自定义主题颜色、取消选择的回调）
  */
-+ (void)showTitle:(NSString *)title pathForResource:(NSString *)resource CustomPickerWithShowType:(TFY_CustomPickerMode)showType defaultSelected:(NSArray *)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock{
++ (void)showTitle:(NSString *_Nullable)title pathForResource:(NSString *_Nullable)resource CustomPickerWithShowType:(TFY_CustomPickerMode)showType defaultSelected:(NSArray *_Nullable)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *_Nullable)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock{
     
     TFY_CustomPickerView *addressPickerView = [[TFY_CustomPickerView alloc] initWithTitle:title pathForResource:resource ShowType:showType defaultSelected:defaultSelectedArr isAutoSelect:isAutoSelect themeColor:themeColor resultBlock:resultBlock cancelBlock:cancelBlock];
     NSAssert(addressPickerView->_isDataSourceValid, @"数据源不合法！参数异常，请检查地址选择器的数据源是否有误");
@@ -65,7 +65,7 @@
 }
 
 #pragma mark - 初始化地址选择器
-- (instancetype)initWithTitle:(NSString *)title pathForResource:(NSString *)resource ShowType:(TFY_CustomPickerMode)showType defaultSelected:(NSArray *)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock {
+- (instancetype)initWithTitle:(NSString *_Nullable)title pathForResource:(NSString *_Nullable)resource ShowType:(TFY_CustomPickerMode)showType defaultSelected:(NSArray *_Nullable)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *_Nullable)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock {
     if (self = [super init]) {
         self.title_str = title;
         self.resource = resource;

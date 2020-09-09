@@ -31,35 +31,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^TFY_StringResultBlock)(id selectValue);
-typedef void(^TFY_StringCancelBlock)(void);
+typedef void(^ _Nullable TFY_StringResultBlock)(id selectValue);
+typedef void(^ _Nullable TFY_StringCancelBlock)(void);
 
 @interface TFY_StringPickerView : TFY_BaseView
 /**
  *  title 标题  dataSource  数组数据源  defaultSelValue  默认选中的行(单列传字符串，多列传一维数组) isAutoSelect     是否自动选择，即选择完(滚动完)执行结果回调，传选择的结果值
  */
-+ (void)showStringPickerWithTitle:(NSString *)title
++ (void)showStringPickerWithTitle:(NSString *_Nullable)title
                        dataSource:(id)dataSource
                   defaultSelValue:(id)defaultSelValue
                       resultBlock:(TFY_StringResultBlock)resultBlock;
 /**
  *  title 标题  plistName  plist文件名  defaultSelValue  默认选中的行(单列传字符串，多列传一维数组) isAutoSelect     是否自动选择，即选择完(滚动完)执行结果回调，传选择的结果值
  */
-+ (void)showStringPickerWithTitle:(NSString *)title
++ (void)showStringPickerWithTitle:(NSString *_Nullable)title
                        dataSource:(id)dataSource
                   defaultSelValue:(id)defaultSelValue
                      isAutoSelect:(BOOL)isAutoSelect
-                       themeColor:(UIColor *)themeColor
+                       themeColor:(UIColor *_Nullable)themeColor
                       resultBlock:(TFY_StringResultBlock)resultBlock;
 
 /**
  * title 标题 dataSource 数据源（1.直接传数组：NSArray类型；2.可以传plist文件名：NSString类型，带后缀名，plist文件内容要是数组格式）defaultSelValue  默认选中的行(单列传字符串，多列传一维数组) isAutoSelect 是否自动选择，即选择完(滚动完)执行结果回调，传选择的结果值 themeColor 自定义主题颜色 resultBlock      选择后的回调 cancelBlock      取消选择的回调
  */
-+ (void)showStringPickerWithTitle:(NSString *)title
++ (void)showStringPickerWithTitle:(NSString *_Nullable)title
                        dataSource:(id)dataSource
                   defaultSelValue:(id)defaultSelValue
                      isAutoSelect:(BOOL)isAutoSelect
-                       themeColor:(UIColor *)themeColor
+                       themeColor:(UIColor *_Nullable)themeColor
                       resultBlock:(TFY_StringResultBlock)resultBlock
                       cancelBlock:(TFY_StringCancelBlock)cancelBlock;
 @end

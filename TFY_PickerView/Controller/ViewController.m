@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "TFY_PickerHeader.H"
+#import "TFY_PickerView.H"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic , strong)UITableView *tableView;

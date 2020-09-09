@@ -18,8 +18,8 @@ typedef NS_ENUM(NSInteger, TFY_CustomPickerMode) {
     TFY_PickerModeThreeGroup
 };
 
-typedef void(^TFY_CustomResultBlock)(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area);
-typedef void(^TFY_CustomCancelBlock)(void);
+typedef void(^ _Nullable TFY_CustomResultBlock)(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area);
+typedef void(^ _Nullable TFY_CustomCancelBlock)(void);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 自定的文件必须放在--TFY_CityBundle.bundle---里面 模型根据 TFY_City.plist 模型修改，不然没用
  *  显示地址选择器（支持 设置选择器类型、传入地区数据源、设置自动选择、自定义主题颜色、取消选择的回调）
  */
-+ (void)showTitle:(NSString *)title pathForResource:(NSString *)resource CustomPickerWithShowType:(TFY_CustomPickerMode)showType defaultSelected:(NSArray *)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock;
++ (void)showTitle:(NSString *_Nullable)title pathForResource:(NSString *_Nullable)resource CustomPickerWithShowType:(TFY_CustomPickerMode)showType defaultSelected:(NSArray *_Nullable)defaultSelectedArr isAutoSelect:(BOOL)isAutoSelect themeColor:(UIColor *_Nullable)themeColor resultBlock:(TFY_CustomResultBlock)resultBlock cancelBlock:(TFY_CustomCancelBlock)cancelBlock;
 
 @end
 

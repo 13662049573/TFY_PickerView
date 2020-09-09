@@ -43,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3638B05B25087F8000F71DC7 /* TFY_PickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFY_PickerView.h; sourceTree = "<group>"; };
 		3655DA6222951D93001CAE7B /* TFY_PickerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFY_PickerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3655DA6C22951D94001CAE7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3655DA6E22951D94001CAE7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		3655DA8B22951D95001CAE7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3655DA9822951E12001CAE7B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3655DA9922951E12001CAE7B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3655DA9F22951E12001CAE7B /* TFY_PickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFY_PickerHeader.h; sourceTree = "<group>"; };
 		3655DAA322951E12001CAE7B /* TFY_CityBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TFY_CityBundle.bundle; sourceTree = "<group>"; };
 		3655DAAB22951E12001CAE7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3655DAAC22951E12001CAE7B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		3655DA9A22951E12001CAE7B /* TFY_PickerView */ = {
 			isa = PBXGroup;
 			children = (
-				3655DA9F22951E12001CAE7B /* TFY_PickerHeader.h */,
+				3638B05B25087F8000F71DC7 /* TFY_PickerView.h */,
 				5670F5182466826700B16011 /* TFY_Address */,
 				5670F5102466826700B16011 /* TFY_Date */,
 				5670F50C2466826700B16011 /* TFY_Macro */,
@@ -542,7 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RP2K7V42S5;
+				DEVELOPMENT_TEAM = QH95759TSS;
 				INFOPLIST_FILE = TFY_PickerView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -560,7 +560,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RP2K7V42S5;
+				DEVELOPMENT_TEAM = QH95759TSS;
 				INFOPLIST_FILE = TFY_PickerView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -62,33 +62,33 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
 @implementation TFY_DatePickerView
 
 #pragma mark - 1.显示时间选择器
-+ (void)showDatePickerWithTitle:(NSString *)title
++ (void)showDatePickerWithTitle:(NSString *_Nullable)title
                        dateType:(TFY_DatePickerMode)dateType
-                defaultSelValue:(NSString *)defaultSelValue
+                defaultSelValue:(NSString *_Nullable)defaultSelValue
                     resultBlock:(TFY_DateResultBlock)resultBlock {
     [self showDatePickerWithTitle:title dateType:dateType defaultSelValue:defaultSelValue minDate:nil maxDate:nil isAutoSelect:NO themeColor:nil resultBlock:resultBlock cancelBlock:nil];
 }
 
 #pragma mark - 2.显示时间选择器（支持 设置自动选择 和 自定义主题颜色）
-+ (void)showDatePickerWithTitle:(NSString *)title
++ (void)showDatePickerWithTitle:(NSString *_Nullable)title
                        dateType:(TFY_DatePickerMode)dateType
-                defaultSelValue:(NSString *)defaultSelValue
-                        minDate:(NSDate *)minDate
-                        maxDate:(NSDate *)maxDate
+                defaultSelValue:(NSString *_Nullable)defaultSelValue
+                        minDate:(NSDate *_Nullable)minDate
+                        maxDate:(NSDate *_Nullable)maxDate
                    isAutoSelect:(BOOL)isAutoSelect
-                     themeColor:(UIColor *)themeColor
+                     themeColor:(UIColor *_Nullable)themeColor
                     resultBlock:(TFY_DateResultBlock)resultBlock {
     [self showDatePickerWithTitle:title dateType:dateType defaultSelValue:defaultSelValue minDate:minDate maxDate:maxDate isAutoSelect:isAutoSelect themeColor:themeColor resultBlock:resultBlock cancelBlock:nil];
 }
 
 #pragma mark - 3.显示时间选择器（支持 设置自动选择、自定义主题颜色、取消选择的回调）
-+ (void)showDatePickerWithTitle:(NSString *)title
++ (void)showDatePickerWithTitle:(NSString *_Nullable)title
                        dateType:(TFY_DatePickerMode)dateType
-                defaultSelValue:(NSString *)defaultSelValue
-                        minDate:(NSDate *)minDate
-                        maxDate:(NSDate *)maxDate
+                defaultSelValue:(NSString *_Nullable)defaultSelValue
+                        minDate:(NSDate *_Nullable)minDate
+                        maxDate:(NSDate *_Nullable)maxDate
                    isAutoSelect:(BOOL)isAutoSelect
-                     themeColor:(UIColor *)themeColor
+                     themeColor:(UIColor *_Nullable)themeColor
                     resultBlock:(TFY_DateResultBlock)resultBlock
                     cancelBlock:(TFY_DateCancelBlock)cancelBlock {
     TFY_DatePickerView *datePickerView = [[TFY_DatePickerView alloc]initWithTitle:title dateType:dateType defaultSelValue:defaultSelValue minDate:minDate maxDate:maxDate isAutoSelect:isAutoSelect themeColor:themeColor resultBlock:resultBlock cancelBlock:cancelBlock];
@@ -96,13 +96,13 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
 }
 
 #pragma mark - 初始化时间选择器
-- (instancetype)initWithTitle:(NSString *)title
+- (instancetype)initWithTitle:(NSString *_Nullable)title
                      dateType:(TFY_DatePickerMode)dateType
-              defaultSelValue:(NSString *)defaultSelValue
-                      minDate:(NSDate *)minDate
-                      maxDate:(NSDate *)maxDate
+              defaultSelValue:(NSString *_Nullable)defaultSelValue
+                      minDate:(NSDate *_Nullable)minDate
+                      maxDate:(NSDate *_Nullable)maxDate
                  isAutoSelect:(BOOL)isAutoSelect
-                   themeColor:(UIColor *)themeColor
+                   themeColor:(UIColor *_Nullable)themeColor
                   resultBlock:(TFY_DateResultBlock)resultBlock
                   cancelBlock:(TFY_DateCancelBlock)cancelBlock {
     if (self = [super init]) {

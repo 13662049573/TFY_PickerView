@@ -40,25 +40,25 @@ typedef NS_ENUM(NSInteger, TFY_StringPickerMode) {
 @implementation TFY_StringPickerView
 
 #pragma mark - 1.显示自定义字符串选择器
-+ (void)showStringPickerWithTitle:(NSString *)title
++ (void)showStringPickerWithTitle:(NSString *_Nullable)title
                        dataSource:(id)dataSource
                   defaultSelValue:(id)defaultSelValue
                       resultBlock:(TFY_StringResultBlock)resultBlock {
-    [self showStringPickerWithTitle:title dataSource:dataSource defaultSelValue:defaultSelValue isAutoSelect:NO themeColor:nil  resultBlock:resultBlock cancelBlock:nil];
+    [self showStringPickerWithTitle:title dataSource:dataSource defaultSelValue:defaultSelValue isAutoSelect:NO themeColor:UIColor.whiteColor  resultBlock:resultBlock cancelBlock:nil];
 }
 
 #pragma mark - 2.显示自定义字符串选择器（支持 设置自动选择 和 自定义主题颜色）
-+ (void)showStringPickerWithTitle:(NSString *)title
++ (void)showStringPickerWithTitle:(NSString *_Nullable)title
                        dataSource:(id)dataSource
                   defaultSelValue:(id)defaultSelValue
                      isAutoSelect:(BOOL)isAutoSelect
-                       themeColor:(UIColor *)themeColor
+                       themeColor:(UIColor *_Nullable)themeColor
                       resultBlock:(TFY_StringResultBlock)resultBlock {
     [self showStringPickerWithTitle:title dataSource:dataSource defaultSelValue:defaultSelValue isAutoSelect:isAutoSelect themeColor:themeColor resultBlock:resultBlock cancelBlock:nil];
 }
 
 #pragma mark - 3.显示自定义字符串选择器（支持 设置自动选择、自定义主题颜色、取消选择的回调）
-+ (void)showStringPickerWithTitle:(NSString *)title
++ (void)showStringPickerWithTitle:(NSString *_Nullable)title
                        dataSource:(id)dataSource
                   defaultSelValue:(id)defaultSelValue
                      isAutoSelect:(BOOL)isAutoSelect
@@ -73,11 +73,11 @@ typedef NS_ENUM(NSInteger, TFY_StringPickerMode) {
 }
 
 #pragma mark - 初始化自定义字符串选择器
-- (instancetype)initWithTitle:(NSString *)title
+- (instancetype)initWithTitle:(NSString *_Nullable)title
                    dataSource:(id)dataSource
               defaultSelValue:(id)defaultSelValue
                  isAutoSelect:(BOOL)isAutoSelect
-                   themeColor:(UIColor *)themeColor
+                   themeColor:(UIColor *_Nullable)themeColor
                   resultBlock:(TFY_StringResultBlock)resultBlock
                   cancelBlock:(TFY_StringCancelBlock)cancelBlock {
     if (self = [super init]) {
