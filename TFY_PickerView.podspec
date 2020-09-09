@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFY_PickerView"
 
-  spec.version      = "2.6.2"
+  spec.version      = "2.6.4"
 
   spec.summary      = "时间选择器，多种选择模式，适合多种选择"
 
@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   
   spec.source       = { :git => "https://github.com/13662049573/TFY_PickerView.git", :tag => spec.version }
 
-  spec.source_files  = "TFY_PickerView/TFY_PickerView/TFY_PickerHeader.h"
+  spec.source_files  = "TFY_PickerView/TFY_PickerView/TFY_PickerView.h"
   
   spec.subspec 'TFY_Address' do |ss|
     ss.source_files  = "TFY_PickerView/TFY_PickerView/TFY_Address/**/*.{h,m}"
