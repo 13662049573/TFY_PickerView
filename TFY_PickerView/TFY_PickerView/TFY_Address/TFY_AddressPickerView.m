@@ -202,9 +202,7 @@
     }
     
     // 2. 根据名称找到默认选中的省市区索引
-//    @weakify(self)
     [self.provinceModelArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        @strongify(self)
         TFY_AddressModel *model = obj;
         if ([model.name isEqualToString:selectProvinceName]) {
             self->_provinceIndex = idx;
@@ -219,9 +217,7 @@
     }];
     if (self.showType == TFY_AddressPickerModeCity || self.showType == TFY_AddressPickerModeArea) {
         self.cityModelArr = [self getCityModelArray:_provinceIndex];
-//        @weakify(self)
         [self.cityModelArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            @strongify(self)
             CityModel *model = obj;
             if ([model.name isEqualToString:selectCityName]) {
                 self->_cityIndex = idx;
@@ -237,9 +233,7 @@
     }
     if (self.showType == TFY_AddressPickerModeArea) {
         self.areaModelArr = [self getAreaModelArray:_provinceIndex cityIndex:_cityIndex];
-//        @weakify(self)
         [self.areaModelArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            @strongify(self)
             AreaModel *model = obj;
             if ([model.name isEqualToString:selectAreaName]) {
                 self->_areaIndex = idx;
