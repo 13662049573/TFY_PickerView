@@ -44,7 +44,7 @@ typedef NS_ENUM(NSInteger, TFY_StringPickerMode) {
                        dataSource:(id)dataSource
                   defaultSelValue:(id)defaultSelValue
                       resultBlock:(TFY_StringResultBlock)resultBlock {
-    [self showStringPickerWithTitle:title dataSource:dataSource defaultSelValue:defaultSelValue isAutoSelect:NO themeColor:UIColor.whiteColor  resultBlock:resultBlock cancelBlock:nil];
+    [self showStringPickerWithTitle:title dataSource:dataSource defaultSelValue:defaultSelValue isAutoSelect:NO themeColor:UIColor.blackColor  resultBlock:resultBlock cancelBlock:nil];
 }
 
 #pragma mark - 2.显示自定义字符串选择器（支持 设置自动选择 和 自定义主题颜色）
@@ -179,7 +179,7 @@ typedef NS_ENUM(NSInteger, TFY_StringPickerMode) {
 #pragma mark - 字符串选择器
 - (UIPickerView *)pickerView {
     if (!_pickerView) {
-        _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight + 0.5, self.alertView.bounds.size.width, TFY_kPickerHeight)];
+        _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight + 0.5, CGRectGetWidth(self.alertView.bounds), TFY_kPickerHeight)];
         _pickerView.backgroundColor = [UIColor whiteColor];
         // 设置子视图的大小随着父视图变化
         _pickerView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
@@ -262,10 +262,10 @@ typedef NS_ENUM(NSInteger, TFY_StringPickerMode) {
 
 // 自定义 pickerView 的 label
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(nullable UIView *)view {
-    
+    NSArray *pickerArr = pickerView.subviews;
     //设置分割线的颜色
-    ((UIView *)[pickerView.subviews objectAtIndex:1]).backgroundColor = [UIColor colorWithRed:195/255.0 green:195/255.0 blue:195/255.0 alpha:1.0];
-    ((UIView *)[pickerView.subviews objectAtIndex:2]).backgroundColor = [UIColor colorWithRed:195/255.0 green:195/255.0 blue:195/255.0 alpha:1.0];
+    ((UIView *)pickerArr.firstObject).backgroundColor = UIColor.whiteColor;
+    ((UIView *)pickerArr.lastObject).backgroundColor = [UIColor colorWithRed:195/255.0 green:195/255.0 blue:195/255.0 alpha:0.2];
     
     UILabel *label = [[UILabel alloc]init];
     label.backgroundColor = [UIColor clearColor];
@@ -277,10 +277,10 @@ typedef NS_ENUM(NSInteger, TFY_StringPickerMode) {
     // 自适应最小字体缩放比例
     label.minimumScaleFactor = 0.5f;
     if (self.type == TFY_StringPickerComponentSingle) {
-        label.frame = CGRectMake(0, 0, self.alertView.bounds.size.width, 35.0f * TFY_kScaleFit);
+        label.frame = CGRectMake(0, 0, CGRectGetWidth(self.alertView.bounds), 35.0f * TFY_kScaleFit);
         label.text = self.dataSourceArr[row];
     } else if (self.type == TFY_StringPickerComponentMore) {
-        label.frame = CGRectMake(0, 0, self.alertView.bounds.size.width / self.dataSourceArr.count, 35.0f * TFY_kScaleFit);
+        label.frame = CGRectMake(0, 0, CGRectGetWidth(self.alertView.bounds) / self.dataSourceArr.count, 35.0f * TFY_kScaleFit);
         label.text = self.dataSourceArr[component][row];
     }
     

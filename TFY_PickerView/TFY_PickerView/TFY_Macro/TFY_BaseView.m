@@ -91,7 +91,7 @@
 #pragma mark - 顶部标题栏视图
 - (UIView *)topView {
     if (!_topView) {
-        _topView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.alertView.frame.size.width, TFY_kTopViewHeight + 0.5)];
+        _topView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.alertView.frame), TFY_kTopViewHeight + 0.5)];
         _topView.backgroundColor = TFY_kBRToolBarColor;
         // 设置子视图的大小随着父视图变化
         _topView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
@@ -139,7 +139,7 @@
 #pragma mark - 中间标题按钮
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.leftBtn.frame.origin.x + self.leftBtn.frame.size.width + 2, 0, self.alertView.frame.size.width - 2 * (self.leftBtn.frame.origin.x + self.leftBtn.frame.size.width + 2), TFY_kTopViewHeight)];
+        _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.leftBtn.frame) + 2, 0, CGRectGetWidth(self.alertView.frame) - 2 * (CGRectGetMaxX(self.leftBtn.frame) + 2), TFY_kTopViewHeight)];
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth;
         _titleLabel.font = [UIFont systemFontOfSize:14.0f * TFY_kScaleFit];
@@ -152,7 +152,7 @@
 #pragma mark - 分割线
 - (UIView *)lineView {
     if (!_lineView) {
-        _lineView = [[UIView alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight, self.alertView.frame.size.width, 0.5)];
+        _lineView = [[UIView alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight, CGRectGetWidth(self.alertView.frame), 0.5)];
         _lineView.backgroundColor = TFY_RGB_HEX(0xf1f1f1, 1.0f);
         _lineView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
         [self.alertView addSubview:_lineView];

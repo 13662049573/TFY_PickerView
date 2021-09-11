@@ -262,7 +262,7 @@
 #pragma mark - 地址选择器
 - (UIPickerView *)pickerView {
     if (!_pickerView) {
-        _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight + 0.5, self.alertView.frame.size.width, TFY_kPickerHeight)];
+        _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight + 0.5, CGRectGetWidth(self.alertView.frame), TFY_kPickerHeight)];
         _pickerView.backgroundColor = [UIColor whiteColor];
         // 设置子视图的大小随着父视图变化
         _pickerView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
@@ -314,14 +314,14 @@
 #pragma mark - UIPickerViewDelegate
 // 3.设置 pickerView 的 显示内容
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(nullable UIView *)view {
+    NSArray *pickerArr = pickerView.subviews;
+    //设置分割线的颜色
+    ((UIView *)pickerArr.firstObject).backgroundColor = UIColor.whiteColor;
+    ((UIView *)pickerArr.lastObject).backgroundColor = [UIColor colorWithRed:195/255.0 green:195/255.0 blue:195/255.0 alpha:0.2];
     
-    // 设置分割线的颜色
-    ((UIView *)[pickerView.subviews objectAtIndex:1]).backgroundColor = [UIColor colorWithRed:195/255.0 green:195/255.0 blue:195/255.0 alpha:1.0];
-    ((UIView *)[pickerView.subviews objectAtIndex:2]).backgroundColor = [UIColor colorWithRed:195/255.0 green:195/255.0 blue:195/255.0 alpha:1.0];
-    
-    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, (self.alertView.frame.size.width) / 3, 35 * TFY_kScaleFit)];
+    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.alertView.frame) / 3, 35 * TFY_kScaleFit)];
     bgView.backgroundColor = [UIColor clearColor];
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(5 * TFY_kScaleFit, 0, (self.alertView.frame.size.width) / 3 - 10 * TFY_kScaleFit, 35 * TFY_kScaleFit)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(5 * TFY_kScaleFit, 0, CGRectGetWidth(self.alertView.frame) / 3 - 10 * TFY_kScaleFit, 35 * TFY_kScaleFit)];
     [bgView addSubview:label];
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentCenter;

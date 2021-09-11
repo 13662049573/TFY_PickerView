@@ -458,7 +458,7 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
 #pragma mark - 时间选择器1
 - (UIDatePicker *)datePicker {
     if (!_datePicker) {
-        _datePicker = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight + 0.5, self.alertView.frame.size.width, TFY_kPickerHeight)];
+        _datePicker = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight + 0.5,CGRectGetWidth(self.alertView.frame), TFY_kPickerHeight)];
         _datePicker.backgroundColor = [UIColor whiteColor];
         // 设置子视图的大小随着父视图变化
         _datePicker.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
@@ -483,7 +483,7 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
 #pragma mark - 时间选择器2
 - (UIPickerView *)pickerView {
     if (!_pickerView) {
-        _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight + 0.5, self.alertView.frame.size.width, TFY_kPickerHeight)];
+        _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, TFY_kTopViewHeight + 0.5, CGRectGetWidth(self.alertView.frame), TFY_kPickerHeight)];
         _pickerView.backgroundColor = [UIColor whiteColor];
         // 设置子视图的大小随着父视图变化
         _pickerView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
@@ -539,9 +539,10 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
 #pragma mark - UIPickerViewDelegate
 // 3.设置 pickerView 的 显示内容
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(nullable UIView *)view {
-    // 设置分割线的颜色
-    ((UIView *)[pickerView.subviews objectAtIndex:1]).backgroundColor = [UIColor colorWithRed:195/255.0 green:195/255.0 blue:195/255.0 alpha:1.0f];
-    ((UIView *)[pickerView.subviews objectAtIndex:2]).backgroundColor = [UIColor colorWithRed:195/255.0 green:195/255.0 blue:195/255.0 alpha:1.0f];
+    NSArray *pickerArr = pickerView.subviews;
+    //设置分割线的颜色
+    ((UIView *)pickerArr.firstObject).backgroundColor = UIColor.whiteColor;
+    ((UIView *)pickerArr.lastObject).backgroundColor = [UIColor colorWithRed:195/255.0 green:195/255.0 blue:195/255.0 alpha:0.2];
     
     UILabel *label = (UILabel *)view;
     if (!label) {
