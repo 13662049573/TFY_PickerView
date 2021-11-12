@@ -87,7 +87,7 @@
         }];
     }
     if (indexPath.row==3){
-        [TFY_DatePickerView showDatePickerWithTitle:@"选择" dateType:TFY_DatePickerModeYMDHM defaultSelValue:@"" resultBlock:^(NSString * _Nonnull selectValue) {
+        [TFY_DatePickerView showDatePickerWithTitle:@"选择" dateType:TFY_DatePickerModeYMD defaultSelValue:@"" resultBlock:^(NSString * _Nonnull selectValue) {
             ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = selectValue;
         }];
     }
