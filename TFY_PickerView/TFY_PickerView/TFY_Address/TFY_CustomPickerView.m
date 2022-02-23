@@ -328,6 +328,16 @@
     //label.textColor = [UIColor redColor];
     label.font = [UIFont systemFontOfSize:18.0f * TFY_kScaleFit];
     // 字体自适应属性
+    if (@available(iOS 13.0, *)) {
+        UIColor *color = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleLight) {
+                return UIColor.blackColor;
+            } else {
+                return UIColor.blackColor;
+            }
+        }];
+        label.textColor = color;
+    }
     label.adjustsFontSizeToFitWidth = YES;
     // 自适应最小字体缩放比例
     label.minimumScaleFactor = 0.5f;

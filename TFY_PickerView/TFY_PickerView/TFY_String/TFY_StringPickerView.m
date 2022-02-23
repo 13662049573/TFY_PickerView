@@ -270,7 +270,17 @@ typedef NS_ENUM(NSInteger, TFY_StringPickerMode) {
     UILabel *label = [[UILabel alloc]init];
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentCenter;
-    //label.textColor = [UIColor redColor];
+    
+    if (@available(iOS 13.0, *)) {
+        UIColor *color = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleLight) {
+                return UIColor.blackColor;
+            } else {
+                return UIColor.blackColor;
+            }
+        }];
+        label.textColor = color;
+    } 
     label.font = [UIFont systemFontOfSize:16.0f * TFY_kScaleFit];
     // 字体自适应属性
     label.adjustsFontSizeToFitWidth = YES;

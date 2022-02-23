@@ -99,9 +99,7 @@
         }];
     }
      if (indexPath.row==5){
-        NSDate *minDate = [NSDate tfy_setHour:1 minute:10];
-        NSDate *maxDate = [NSDate tfy_setHour:33 minute:35];
-        [TFY_DatePickerView showDatePickerWithTitle:@"选择" dateType:TFY_DatePickerModeDate defaultSelValue:@"" minDate:minDate maxDate:maxDate isAutoSelect:YES themeColor:[UIColor blueColor] resultBlock:^(NSString * _Nonnull selectValue) {
+        [TFY_DatePickerView showDatePickerWithTitle:@"选择" dateType:TFY_DatePickerModeDateAndTime defaultSelValue:@"" minDate:nil maxDate:nil isAutoSelect:YES themeColor:[UIColor blueColor] resultBlock:^(NSString * _Nonnull selectValue) {
             ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = selectValue;
         } cancelBlock:^{
             

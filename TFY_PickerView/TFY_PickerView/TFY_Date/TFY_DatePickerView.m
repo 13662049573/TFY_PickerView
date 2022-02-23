@@ -462,11 +462,14 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
         _datePicker.backgroundColor = [UIColor whiteColor];
         // 设置子视图的大小随着父视图变化
         _datePicker.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+        
         _datePicker.datePickerMode = _datePickerMode;
         // 设置该UIDatePicker的国际化Locale，以简体中文习惯显示日期，UIDatePicker控件默认使用iOS系统的国际化Locale
-        _datePicker.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CHS_CN"];
-        // textColor 隐藏属性，使用KVC赋值
-        // [_datePicker setValue:[UIColor blackColor] forKey:@"textColor"];
+        _datePicker.locale = [NSLocale localeWithLocaleIdentifier:@"zh"];
+        
+        if (@available(iOS 13.4, *)) {
+            _datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
+        }
         // 设置时间范围
         if (self.minLimitDate) {
             _datePicker.minimumDate = self.minLimitDate;
@@ -556,6 +559,16 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
         label.minimumScaleFactor = 0.5f;
     }
     // 给选择器上的label赋值
+    if (@available(iOS 13.0, *)) {
+        UIColor *color = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleLight) {
+                return UIColor.blackColor;
+            } else {
+                return UIColor.blackColor;
+            }
+        }];
+        label.textColor = color;
+    }
     [self setDateLabelText:label component:component row:row];
     return label;
 }

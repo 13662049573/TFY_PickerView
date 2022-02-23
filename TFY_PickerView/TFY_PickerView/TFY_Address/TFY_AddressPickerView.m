@@ -361,6 +361,16 @@
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(5 * TFY_kScaleFit, 0, CGRectGetWidth(self.alertView.frame) / 3 - 10 * TFY_kScaleFit, 35 * TFY_kScaleFit)];
     [bgView addSubview:label];
     label.backgroundColor = [UIColor clearColor];
+    if (@available(iOS 13.0, *)) {
+        UIColor *color = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleLight) {
+                return UIColor.blackColor;
+            } else {
+                return UIColor.blackColor;
+            }
+        }];
+        label.textColor = color;
+    }
     label.textAlignment = NSTextAlignmentCenter;
     //label.textColor = [UIColor redColor];
     label.font = [UIFont systemFontOfSize:18.0f * TFY_kScaleFit];
