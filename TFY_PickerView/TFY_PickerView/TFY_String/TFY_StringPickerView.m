@@ -118,9 +118,13 @@ typedef NS_ENUM(NSInteger, TFY_StringPickerMode) {
     if (isDataSourceValid) {
         Class itemClass = [[dataArr firstObject] class];
         for (id obj in dataArr) {
-            if (![obj isKindOfClass:itemClass]) {
-                isDataSourceValid = NO;
-                break;
+            if ([obj isKindOfClass:NSClassFromString(@"NSTaggedPointerString")]) {
+                isDataSourceValid = YES;
+            } else {
+                if (![obj isKindOfClass:itemClass]) {
+                    isDataSourceValid = NO;
+                    break;
+                }
             }
         }
     }
