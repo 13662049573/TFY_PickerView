@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
     NSInteger _dayIndex;
     NSInteger _hourIndex;
     NSInteger _minuteIndex;
+    NSInteger _miaoIndex;
     
     NSString *_title;
     UIDatePickerMode _datePickerMode;
@@ -39,6 +40,7 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
 @property(nonatomic, strong) NSArray *dayArr;
 @property(nonatomic, strong) NSArray *hourArr;
 @property(nonatomic, strong) NSArray *minuteArr;
+@property(nonatomic, strong) NSArray *miaoArr;
 /** 显示类型 */
 @property (nonatomic, assign) TFY_DatePickerMode showType;
 /** 时间选择器的类型 */
@@ -236,7 +238,13 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
             _datePickerMode = UIDatePickerModeCountDownTimer;
         }
             break;
-            
+           
+        case TFY_DatePickerModeYMDHMS:
+        {
+            self.selectDateFormatter = @"yyyy-MM-dd HH:mm:ss";
+            self.style = TFY_DatePickerStyleCustom;
+        }
+            break;
         case TFY_DatePickerModeYMDHM:
         {
             self.selectDateFormatter = @"yyyy-MM-dd HH:mm";
@@ -312,12 +320,15 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
     [self setupHourArr:self.selectDate.tfy_year month:self.selectDate.tfy_month day:self.selectDate.tfy_day];
     // 5.设置 minuteArr 数组
     [self setupMinuteArr:self.selectDate.tfy_year month:self.selectDate.tfy_month day:self.selectDate.tfy_day hour:self.selectDate.tfy_hour];
+    // 6.设置 secondArr 数组
+    [self setupMinuteArr:self.selectDate.tfy_year month:self.selectDate.tfy_month day:self.selectDate.tfy_day hour:self.selectDate.tfy_hour second:self.selectDate.tfy_second];
     // 根据 默认选择的日期 计算出 对应的索引
     _yearIndex = self.selectDate.tfy_year - self.minLimitDate.tfy_year;
     _monthIndex = self.selectDate.tfy_month - ((_yearIndex == 0) ? self.minLimitDate.tfy_month : 1);
     _dayIndex = self.selectDate.tfy_day - ((_yearIndex == 0 && _monthIndex == 0) ? self.minLimitDate.tfy_day : 1);
     _hourIndex = self.selectDate.tfy_hour - ((_yearIndex == 0 && _monthIndex == 0 && _dayIndex == 0) ? self.minLimitDate.tfy_hour : 0);
     _minuteIndex = self.selectDate.tfy_minute - ((_yearIndex == 0 && _monthIndex == 0 && _dayIndex == 0 && _hourIndex == 0) ? self.minLimitDate.tfy_minute : 0);
+    _miaoIndex = self.selectDate.tfy_second - ((_yearIndex == 0 && _monthIndex == 0 && _dayIndex == 0 && _hourIndex == 0 && _minuteIndex == 0) ? self.minLimitDate.tfy_second : 0);
     
 }
 
@@ -346,6 +357,11 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
     [self setupMinuteArr:year month:month day:day hour:hour];
     // 更新索引：防止更新 monthArr 后数组越界
     _minuteIndex = (_minuteIndex > self.minuteArr.count - 1) ? (self.minuteArr.count - 1) : _minuteIndex;
+    
+    NSInteger second = [self.miaoArr[_miaoIndex] integerValue];
+    [self setupMinuteArr:year month:month day:day hour:hour second:second];
+    
+    _miaoIndex = (_miaoIndex > self.miaoArr.count - 1) ? (self.miaoArr.count - 1) : _miaoIndex;
 }
 
 // 设置 yearArr 数组
@@ -425,6 +441,24 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
     self.minuteArr = [tempArr copy];
 }
 
+
+// 设置 miaoArr 数组
+- (void)setupMinuteArr:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour second:(NSInteger)second{
+    NSInteger startMinute = 0;
+    NSInteger endMinute = 59;
+    if (year == self.minLimitDate.tfy_year && month == self.minLimitDate.tfy_month && day == self.minLimitDate.tfy_day && hour == self.minLimitDate.tfy_hour && second == self.minLimitDate.tfy_second) {
+        startMinute = self.minLimitDate.tfy_second;
+    }
+    if (year == self.maxLimitDate.tfy_year && month == self.maxLimitDate.tfy_month && day == self.maxLimitDate.tfy_day && hour == self.maxLimitDate.tfy_hour && second == self.maxLimitDate.tfy_second) {
+        endMinute = self.maxLimitDate.tfy_second;
+    }
+    NSMutableArray *tempArr = [NSMutableArray arrayWithCapacity:(endMinute - startMinute + 1)];
+    for (NSInteger i = startMinute; i <= endMinute; i++) {
+        [tempArr addObject:[@(i) stringValue]];
+    }
+    self.miaoArr = [tempArr copy];
+}
+
 #pragma mark - 滚动到指定的时间位置
 - (void)scrollToSelectDate:(NSDate *)selectDate animated:(BOOL)animated {
     // 根据 当前选择的日期 计算出 对应的索引
@@ -433,9 +467,12 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
     NSInteger dayIndex = selectDate.tfy_day - ((yearIndex == 0 && monthIndex == 0) ? self.minLimitDate.tfy_day : 1);
     NSInteger hourIndex = selectDate.tfy_hour - ((yearIndex == 0 && monthIndex == 0 && dayIndex == 0) ? self.minLimitDate.tfy_hour : 0);
     NSInteger minuteIndex = selectDate.tfy_minute - ((yearIndex == 0 && monthIndex == 0 && dayIndex == 0 && hourIndex == 0) ? self.minLimitDate.tfy_minute : 0);
+    NSInteger miaoIndex = selectDate.tfy_second - ((yearIndex == 0 && monthIndex == 0 && dayIndex == 0 && hourIndex == 0 && minuteIndex==0) ? self.minLimitDate.tfy_second : 0);
     
     NSArray *indexArr = [NSArray array];
-    if (self.showType == TFY_DatePickerModeYMDHM) {
+    if (self.showType == TFY_DatePickerModeYMDHMS) {
+        indexArr = @[@(yearIndex), @(monthIndex), @(dayIndex), @(hourIndex), @(minuteIndex),@(miaoIndex)];
+    } else if (self.showType == TFY_DatePickerModeYMDHM) {
         indexArr = @[@(yearIndex), @(monthIndex), @(dayIndex), @(hourIndex), @(minuteIndex)];
     } else if (self.showType == TFY_DatePickerModeMDHM) {
         indexArr = @[@(monthIndex), @(dayIndex), @(hourIndex), @(minuteIndex)];
@@ -500,7 +537,9 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
 #pragma mark - UIPickerViewDataSource
 // 1.指定pickerview有几个表盘(几列)
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    if (self.showType == TFY_DatePickerModeYMDHM) {
+    if (self.showType == TFY_DatePickerModeYMDHMS) {
+        return 6;
+    } else if (self.showType == TFY_DatePickerModeYMDHM) {
         return 5;
     } else if (self.showType == TFY_DatePickerModeMDHM) {
         return 4;
@@ -521,7 +560,9 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
 // 2.指定每个表盘上有几行数据
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     NSArray *rowsArr = [NSArray array];
-    if (self.showType == TFY_DatePickerModeYMDHM) {
+    if (self.showType == TFY_DatePickerModeYMDHMS) {
+        rowsArr = @[@(self.yearArr.count), @(self.monthArr.count), @(self.dayArr.count), @(self.hourArr.count), @(self.minuteArr.count),@(self.miaoArr.count)];
+    } else if (self.showType == TFY_DatePickerModeYMDHM) {
         rowsArr = @[@(self.yearArr.count), @(self.monthArr.count), @(self.dayArr.count), @(self.hourArr.count), @(self.minuteArr.count)];
     } else if (self.showType == TFY_DatePickerModeMDHM) {
         rowsArr = @[@(self.monthArr.count), @(self.dayArr.count), @(self.hourArr.count), @(self.minuteArr.count)];
@@ -593,7 +634,21 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
 }
 
 - (void)setDateLabelText:(UILabel *)label component:(NSInteger)component row:(NSInteger)row {
-    if (self.showType == TFY_DatePickerModeYMDHM) {
+    if (self.showType == TFY_DatePickerModeYMDHMS) {
+        if (component == 0) {
+            label.text = [NSString stringWithFormat:@"%@年", self.yearArr[row]];
+        } else if (component == 1) {
+            label.text = [NSString stringWithFormat:@"%@月", self.monthArr[row]];
+        } else if (component == 2) {
+            label.text = [NSString stringWithFormat:@"%@日", self.dayArr[row]];
+        } else if (component == 3) {
+            label.text = [NSString stringWithFormat:@"%@时", self.hourArr[row]];
+        } else if (component == 4) {
+            label.text = [NSString stringWithFormat:@"%@分", self.minuteArr[row]];
+        } else if (component == 5) {
+            label.text = [NSString stringWithFormat:@"%@妙", self.miaoArr[row]];
+        }
+    } else if (self.showType == TFY_DatePickerModeYMDHM) {
         if (component == 0) {
             label.text = [NSString stringWithFormat:@"%@年", self.yearArr[row]];
         } else if (component == 1) {
@@ -650,7 +705,43 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
 
 - (NSDate *)getDidSelectedDate:(NSInteger)component row:(NSInteger)row {
     NSString *selectDateValue = nil;
-    if (self.showType == TFY_DatePickerModeYMDHM) {
+    if (self.showType == TFY_DatePickerModeYMDHMS) {
+        if (component == 0) {
+            _yearIndex = row;
+            [self updateDateArray];
+            [self.pickerView reloadComponent:1];
+            [self.pickerView reloadComponent:2];
+            [self.pickerView reloadComponent:3];
+            [self.pickerView reloadComponent:4];
+            [self.pickerView reloadComponent:5];
+        } else if (component == 1) {
+            _monthIndex = row;
+            [self updateDateArray];
+            [self.pickerView reloadComponent:2];
+            [self.pickerView reloadComponent:3];
+            [self.pickerView reloadComponent:4];
+            [self.pickerView reloadComponent:5];
+        } else if (component == 2) {
+            _dayIndex = row;
+            [self updateDateArray];
+            [self.pickerView reloadComponent:3];
+            [self.pickerView reloadComponent:4];
+            [self.pickerView reloadComponent:5];
+        } else if (component == 3) {
+            _hourIndex = row;
+            [self updateDateArray];
+            [self.pickerView reloadComponent:4];
+            [self.pickerView reloadComponent:5];
+        } else if (component == 4) {
+            _minuteIndex = row;
+            [self updateDateArray];
+            [self.pickerView reloadComponent:5];
+        } else if (component == 5) {
+            _miaoIndex = row;
+        }
+        selectDateValue = [NSString stringWithFormat:@"%@-%02ld-%02ld %02ld:%02ld:%02ld", self.yearArr[_yearIndex], (long)[self.monthArr[_monthIndex] integerValue], (long)[self.dayArr[_dayIndex] integerValue], (long)[self.hourArr[_hourIndex] integerValue], (long)[self.minuteArr[_minuteIndex] integerValue],(long)[self.miaoArr[_miaoIndex] integerValue]];
+        
+    } else if (self.showType == TFY_DatePickerModeYMDHM) {
         if (component == 0) {
             _yearIndex = row;
             [self updateDateArray];
@@ -864,6 +955,13 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerStyle) {
         _minuteArr = [NSArray array];
     }
     return _minuteArr;
+}
+
+- (NSArray *)miaoArr {
+    if (!_miaoArr) {
+        _miaoArr = [NSArray array];
+    }
+    return _miaoArr;
 }
 
 @end

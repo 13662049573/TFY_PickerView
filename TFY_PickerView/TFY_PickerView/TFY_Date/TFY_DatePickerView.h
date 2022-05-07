@@ -35,6 +35,8 @@ typedef NS_ENUM(NSInteger, TFY_DatePickerMode) {
     // UIDatePickerModeCountDownTimer
     TFY_DatePickerModeCountDownTimer,    // HH:mm
     // --- 以下7种是自定义样式 ---
+    // 年月日时分妙
+    TFY_DatePickerModeYMDHMS,      // yyyy-MM-dd HH:mm:ss
     // 年月日时分
     TFY_DatePickerModeYMDHM,      // yyyy-MM-dd HH:mm
     // 月日时分

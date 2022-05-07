@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable NSDate *)tfy_setYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 /** yyyy-MM-dd HH:mm */
 + (nullable NSDate *)tfy_setYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute;
+/** yyyy-MM-dd HH:mm:ss */
++ (nullable NSDate *)tfy_setYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second;
 /** MM-dd HH:mm */
 + (nullable NSDate *)tfy_setMonth:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute;
 /** MM-dd */
