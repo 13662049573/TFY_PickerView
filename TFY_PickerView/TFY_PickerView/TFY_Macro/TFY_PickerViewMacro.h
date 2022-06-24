@@ -32,7 +32,7 @@ blue:((CGFloat)(rgbValue & 0xFF)) / 255.0 alpha:(a)]
 // 等比例适配系数
 #define TFY_kScaleFit (TFY_IS_IPHONE ? ((TFY_SCREEN_WIDTH < TFY_SCREEN_HEIGHT) ? TFY_SCREEN_WIDTH / 375.0f : TFY_SCREEN_WIDTH / 667.0f) : 1.1f)
 
-#define TFY_kPickerHeight 245
+#define TFY_kPickerHeight 280
 #define TFY_kTopViewHeight 44
 
 // 状态栏的高度(20 / 44(iPhoneX))
