@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFY_PickerView"
 
-  spec.version      = "2.7.6"
+  spec.version      = "2.7.7"
 
   spec.summary      = "时间选择器，多种选择模式，适合多种选择"
 
