@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFY_PickerView"
 
-  spec.version      = "2.7.7"
+  spec.version      = "2.7.9"
 
   spec.summary      = "时间选择器，多种选择模式，适合多种选择"
 
@@ -40,8 +40,8 @@ Pod::Spec.new do |spec|
     ss.source_files  = "TFY_PickerView/TFY_PickerView/TFY_String/**/*.{h,m}"
     ss.dependency "TFY_PickerView/TFY_Macro"
   end
-
-  spec.resources = "TFY_PickerView/TFY_PickerView/TFY_CityBundle.bundle"
+  
+  spec.resources = ['TFY_PickerView/TFY_PickerView/TFY_CityBundle.bundle', 'TFY_PickerView/TFY_PickerView/TFY_PickerView.bundle']
 
   spec.frameworks = "UIKit", "Foundation"
 
