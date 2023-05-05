@@ -16,14 +16,12 @@ FOUNDATION_EXPORT const unsigned char TFY_PickerViewVersionString[];
 #import <TFY_PickerView/TFY_StringPickerView.h>
 #import <TFY_PickerView/TFY_DatePickerView.h>
 #import <TFY_PickerView/TFY_AddressPickerView.h>
-#import <TFY_PickerView/TFY_CustomPickerView.h>
 
 #else
 
 #import "TFY_StringPickerView.h"
 #import "TFY_DatePickerView.h"
 #import "TFY_AddressPickerView.h"
-#import "TFY_CustomPickerView.h"
 
 #endif
 

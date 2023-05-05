@@ -8,14 +8,13 @@
 
 #import "TFY_AddressModel.h"
 
-@implementation AreaModel
-
+@implementation TFY_ProvinceModel
 @end
 
-@implementation CityModel
-
+@implementation TFY_CityModel
 @end
 
-@implementation TFY_AddressModel
 
+@implementation TFY_AreaModel
 @end
+

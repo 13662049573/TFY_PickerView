@@ -21,7 +21,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-     NSArray *arr = @[@"普通选择器1",@"普通选择器2",@"普通选择器3",@"时间选择器1",@"时间选择器2",@"时间选择器3",@"地址选择器1",@"地址选择器2",@"地址选择器3",@"地址选择器4",@"自定义数据模型"];
+     NSArray *arr = @[@"普通选择器1",@"普通选择器2",@"普通选择器3",@"时间选择器1",@"时间选择器2",@"时间选择器3",@"地址选择器1",@"地址选择器2",@"地址选择器3"];
     
     self.array = [NSMutableArray arrayWithArray:arr];
     
@@ -52,10 +52,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    
     if (indexPath.row==0) {
-        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:@[@"男",@"女",@"渣男",@"渣女",@"小姐姐",@"小哥哥",@"其他"] defaultSelValue:@"渣男" resultBlock:^(id  _Nonnull selectValue) {
+        [TFY_StringPickerView showPickerWithTitle:@"选择" dataSourceArr:@[@"男",@"女",@"渣男",@"渣女",@"小姐姐",@"小哥哥",@"其他"] selectIndex:2 resultBlock:^(TFY_ResultModel * _Nullable resultModel) {
             
-            ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = selectValue;
-            
+            ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = resultModel.value;
         }];
     }
    if (indexPath.row==1){
@@ -71,76 +70,48 @@
             [array3 addObject:string];
         }
         NSMutableArray *array = [NSMutableArray arrayWithObjects: array2,array3, nil];
-        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:array defaultSelValue:@[@"50",@".50"] isAutoSelect:YES themeColor:[UIColor greenColor] resultBlock:^(id  _Nonnull selectValue) {
-            
-            
-            ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = [NSString stringWithFormat:@"%@%@",selectValue[0],selectValue[1]];
-        }];
+       [TFY_StringPickerView showMultiPickerWithTitle:@"选择" dataSourceArr:array selectIndexs:@[@1,@3] resultBlock:^(NSArray<TFY_ResultModel *> * _Nullable resultModelArr) {
+           ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = [NSString stringWithFormat:@"%@%@",resultModelArr.firstObject.value,resultModelArr.lastObject.value];
+       }];
     }
      if (indexPath.row==2){
-        [TFY_StringPickerView showStringPickerWithTitle:@"选择" dataSource:@[@"男",@"女",@"渣男",@"渣女",@"小姐姐",@"小哥哥",@"其他"] defaultSelValue:@"渣男" isAutoSelect:NO themeColor:[UIColor blueColor] resultBlock:^(id  _Nonnull selectValue) {
-            
-            ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = selectValue;
-            
-        } cancelBlock:^{
-            NSLog(@"普通选择器3自定义颜色---%@",@"cancel");
-        }];
+         [TFY_StringPickerView showPickerWithTitle:@"选择" dataSourceArr:@[@"男",@"女",@"渣男",@"渣女",@"小姐姐",@"小哥哥",@"其他"] selectIndex:1 resultBlock:^(TFY_ResultModel * _Nullable resultModel) {
+             
+             ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = resultModel.value;
+         }];
     }
     if (indexPath.row==3){
-        [TFY_DatePickerView showDatePickerWithTitle:@"选择" dateType:TFY_DatePickerModeYMD defaultSelValue:@"" resultBlock:^(NSString * _Nonnull selectValue) {
+        [TFY_DatePickerView showDatePickerWithMode:TFYDatePickerModeYMD title:@"选择" selectValue:@"" resultBlock:^(NSDate * _Nullable selectDate, NSString * _Nullable selectValue) {
+            
             ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = selectValue;
         }];
     }
     if (indexPath.row==4){
-        NSDate *minDate = [NSDate tfy_setHour:1 minute:1];
-        NSDate *maxDate = [NSDate tfy_setHour:1 minute:1];
-        [TFY_DatePickerView showDatePickerWithTitle:@"选择" dateType:TFY_DatePickerModeYM defaultSelValue:@"" minDate:minDate maxDate:maxDate isAutoSelect:YES themeColor:[UIColor blackColor] resultBlock:^(NSString * _Nonnull selectValue) {
+        NSDate *minDate = [NSDate picker_setHour:1 minute:1];
+        NSDate *maxDate = [NSDate picker_setHour:1 minute:1];
+        [TFY_DatePickerView showDatePickerWithMode:TFYDatePickerModeYM title:@"选择" selectValue:@"" minDate:minDate maxDate:maxDate isAutoSelect:YES resultBlock:^(NSDate * _Nullable selectDate, NSString * _Nullable selectValue) {
+            
             ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = selectValue;
         }];
     }
      if (indexPath.row==5){
-        [TFY_DatePickerView showDatePickerWithTitle:@"选择" dateType:TFY_DatePickerModeDateAndTime defaultSelValue:@"" minDate:nil maxDate:nil isAutoSelect:YES themeColor:[UIColor blueColor] resultBlock:^(NSString * _Nonnull selectValue) {
-            ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = selectValue;
-        } cancelBlock:^{
-            
-        }];
+         [TFY_DatePickerView showDatePickerWithMode:TFYDatePickerModeDateAndTime title:@"选择" selectValue:@"" resultBlock:^(NSDate * _Nullable selectDate, NSString * _Nullable selectValue) {
+             ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = selectValue;
+         }];
     }
   if (indexPath.row==6){
-        [TFY_AddressPickerView showAddressPickerWithDefaultSelected:@[@"浙江省", @"杭州市", @"西湖区"] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
-            
-            ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = [NSString stringWithFormat:@"%@%@%@",province.name,city.name,area.name];
-            
-        }];
+      [TFY_AddressPickerView showAddressPickerWithMode:TFYAddressPickerModeArea selectIndexs:@[@1,@3] isAutoSelect:YES resultBlock:^(TFY_ProvinceModel * _Nullable province, TFY_CityModel * _Nullable city, TFY_AreaModel * _Nullable area) {
+          ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = [NSString stringWithFormat:@"%@%@%@",province.name,city.name,area.name];
+      }];
     }
      if (indexPath.row==7){
-        [TFY_AddressPickerView showAddressPickerWithDefaultSelected:@[@"浙江省", @"杭州市", @"西湖区"] isAutoSelect:NO themeColor:[UIColor brownColor] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
-           ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = [NSString stringWithFormat:@"%@%@%@",province.name,city.name,area.name];
-        }];
+         [TFY_AddressPickerView showAddressPickerWithMode:TFYAddressPickerModeCity selectIndexs:@[@1,@3] isAutoSelect:YES resultBlock:^(TFY_ProvinceModel * _Nullable province, TFY_CityModel * _Nullable city, TFY_AreaModel * _Nullable area) {
+             ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = [NSString stringWithFormat:@"%@%@%@",province.name,city.name,area.name];
+         }];
     }
     if (indexPath.row==8){
-        [TFY_AddressPickerView showAddressPickerWithShowType:TFY_AddressPickerModeCity defaultSelected:@[@"杭州市", @"西湖区"] isAutoSelect:NO themeColor:[UIColor redColor] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
+        [TFY_AddressPickerView showAddressPickerWithMode:TFYAddressPickerModeProvince selectIndexs:@[@1,@3] isAutoSelect:YES resultBlock:^(TFY_ProvinceModel * _Nullable province, TFY_CityModel * _Nullable city, TFY_AreaModel * _Nullable area) {
             ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = [NSString stringWithFormat:@"%@%@%@",province.name,city.name,area.name];
-        } cancelBlock:^{
-            
-        }];
-    }
-    if (indexPath.row==9){
-        [TFY_AddressPickerView showAddressPickerWithShowType:TFY_AddressPickerModeCity dataSource:@[] defaultSelected:@[@"36", @".50"] isAutoSelect:NO themeColor:[UIColor blueColor] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
-            
-            ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = [NSString stringWithFormat:@"%@%@%@",province.name,city.name,area.name];
-            
-        } cancelBlock:^{
-            
-        }];
-    }
-     if(indexPath.row ==10){
-        
-        [TFY_CustomPickerView showTitle:@"温度选择" pathForResource:@"TFY_Temp" CustomPickerWithShowType:TFY_PickerModeTwoGroup defaultSelected:@[@"36",@".50"] isAutoSelect:NO themeColor:[UIColor redColor] resultBlock:^(TFY_AddressModel * _Nonnull province, CityModel * _Nonnull city, AreaModel * _Nonnull area) {
-            
-            ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textLabel.text = [NSString stringWithFormat:@"%@%@%@",province.name,city.name,area.name];
-            
-        } cancelBlock:^{
-            
         }];
     }
     

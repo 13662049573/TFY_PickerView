@@ -11,46 +11,106 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDate (TFY_PickerView)
-@property (readonly) NSInteger tfy_year;    // 年
-@property (readonly) NSInteger tfy_month;   // 月
-@property (readonly) NSInteger tfy_day;     // 日
-@property (readonly) NSInteger tfy_hour;    // 时
-@property (readonly) NSInteger tfy_minute;  // 分
-@property (readonly) NSInteger tfy_second;  // 秒
-@property (readonly) NSInteger tfy_weekday; // 星期
+/// 获取指定date的详细信息
+@property (readonly) NSInteger picker_year;         // 年
+@property (readonly) NSInteger picker_month;        // 月
+@property (readonly) NSInteger picker_day;          // 日
+@property (readonly) NSInteger picker_hour;         // 时
+@property (readonly) NSInteger picker_minute;       // 分
+@property (readonly) NSInteger picker_second;       // 秒
+@property (readonly) NSInteger picker_weekday;      // 星期
+@property (readonly) NSInteger picker_monthWeek;    // 月周
+@property (readonly) NSInteger picker_yearWeek;     // 年周
+@property (readonly) NSInteger picker_quarter;      // 季度
 
-/** 创建 date */
+/** 获取中文星期字符串 */
+@property (nullable, nonatomic, readonly, copy) NSString *picker_weekdayString;
+
+/** 获取日历单例对象 */
++ (NSCalendar *)picker_calendar;
+
+
+/// ---------------- 创建 date ----------------
+/** 通过 NSDateComponents对象 来创建 NSDate对象（可以设置时区） */
++ (nullable NSDate *)picker_setDateFromComponents:(NSDateComponents *)components timeZone:(NSTimeZone *)timeZone;
+
 /** yyyy */
-+ (nullable NSDate *)tfy_setYear:(NSInteger)year;
-/** yyyy-MM */
-+ (nullable NSDate *)tfy_setYear:(NSInteger)year month:(NSInteger)month;
-/** yyyy-MM-dd */
-+ (nullable NSDate *)tfy_setYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
-/** yyyy-MM-dd HH:mm */
-+ (nullable NSDate *)tfy_setYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute;
-/** yyyy-MM-dd HH:mm:ss */
-+ (nullable NSDate *)tfy_setYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second;
-/** MM-dd HH:mm */
-+ (nullable NSDate *)tfy_setMonth:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute;
-/** MM-dd */
-+ (nullable NSDate *)tfy_setMonth:(NSInteger)month day:(NSInteger)day;
-/** HH:mm */
-+ (nullable NSDate *)tfy_setHour:(NSInteger)hour minute:(NSInteger)minute;
++ (nullable NSDate *)picker_setYear:(NSInteger)year;
 
-/** 日期和字符串之间的转换：NSDate --> NSString */
-+ (nullable  NSString *)tfy_getDateString:(NSDate *)date format:(NSString *)format;
-/** 日期和字符串之间的转换：NSString --> NSDate */
-+ (nullable  NSDate *)tfy_getDate:(NSString *)dateString format:(NSString *)format;
+/** yyyy-MM */
++ (nullable NSDate *)picker_setYear:(NSInteger)year month:(NSInteger)month;
+
+/** yyyy-MM-dd */
++ (nullable NSDate *)picker_setYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+
+/** yyyy-MM-dd HH */
++ (nullable NSDate *)picker_setYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour;
+
+/** yyyy-MM-dd HH:mm */
++ (nullable NSDate *)picker_setYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute;
+
+/** yyyy-MM-dd HH:mm:ss */
++ (nullable NSDate *)picker_setYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second;
+
+/** MM-dd HH:mm */
++ (nullable NSDate *)picker_setMonth:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute;
+
+/** MM-dd */
++ (nullable NSDate *)picker_setMonth:(NSInteger)month day:(NSInteger)day;
+
+/** HH:mm:ss */
++ (nullable NSDate *)picker_setHour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second;
+
+/** HH:mm */
++ (nullable NSDate *)picker_setHour:(NSInteger)hour minute:(NSInteger)minute;
+
+/** mm:ss */
++ (nullable NSDate *)picker_setMinute:(NSInteger)minute second:(NSInteger)second;
+
+/** yyyy-MM-ww */
++ (nullable NSDate *)picker_setYear:(NSInteger)year month:(NSInteger)month weekOfMonth:(NSInteger)weekOfMont;
+
+/** yyyy-ww */
++ (nullable NSDate *)picker_setYear:(NSInteger)year weekOfYear:(NSInteger)weekOfYear;
+
+/** yyyy-qq */
++ (nullable NSDate *)picker_setYear:(NSInteger)year quarter:(NSInteger)quarter;
+
+
 /** 获取某个月的天数（通过年月求每月天数）*/
-+ (NSUInteger)tfy_getDaysInYear:(NSInteger)year month:(NSInteger)month;
++ (NSUInteger)picker_getDaysInYear:(NSInteger)year month:(NSInteger)month;
+
+/** 获取某个月的周数（通过年月求该月周数）*/
++ (NSUInteger)picker_getWeeksOfMonthInYear:(NSInteger)year month:(NSInteger)month;
+
+/** 获取某一年的周数（通过年求该年周数）*/
++ (NSUInteger)picker_getWeeksOfYearInYear:(NSInteger)year;
+
+/** 获取某一年的季度数（通过年求该年季度数）*/
++ (NSUInteger)picker_getQuartersInYear:(NSInteger)year;
 
 /**  获取 日期加上/减去某天数后的新日期 */
-- (nullable NSDate *)tfy_getNewDate:(NSDate *)date addDays:(NSTimeInterval)days;
+- (nullable NSDate *)picker_getNewDateToDays:(NSTimeInterval)days;
 
-/**
- *  比较两个时间大小（可以指定比较级数，即按指定格式进行比较）
- */
-- (NSComparisonResult)tfy_compare:(NSDate *)targetDate format:(NSString *)format;
+/**  获取 日期加上/减去某个月数后的新日期 */
+- (nullable NSDate *)picker_getNewDateToMonths:(NSTimeInterval)months;
+
+/** NSDate 转 NSString */
++ (nullable NSString *)picker_stringFromDate:(NSDate *)date dateFormat:(NSString *)dateFormat;
+/** NSDate 转 NSString */
++ (nullable NSString *)picker_stringFromDate:(NSDate *)date
+                     dateFormat:(NSString *)dateFormat
+                       timeZone:(nullable NSTimeZone *)timeZone
+                       language:(nullable NSString *)language;
+
+
+/** NSString 转 NSDate */
++ (nullable NSDate *)picker_dateFromString:(NSString *)dateString dateFormat:(NSString *)dateFormat;
+/** NSString 转 NSDate */
++ (nullable NSDate *)picker_dateFromString:(NSString *)dateString
+                   dateFormat:(NSString *)dateFormat
+                     timeZone:(nullable NSTimeZone *)timeZone
+                     language:(nullable NSString *)language;
 
 @end
 

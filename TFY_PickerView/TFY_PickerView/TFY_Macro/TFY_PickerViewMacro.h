@@ -9,53 +9,76 @@
 #ifndef TFY_PickerViewMacro_h
 #define TFY_PickerViewMacro_h
 
-// 屏幕大小、宽、高
-#ifndef TFY_SCREEN_BOUNDS
-#define TFY_SCREEN_BOUNDS [UIScreen mainScreen].bounds
-#endif
-#ifndef TFY_SCREEN_WIDTH
-#define TFY_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#endif
-#ifndef TFY_SCREEN_HEIGHT
-#define TFY_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
-#endif
+#import <UIKit/UIKit.h>
 
-// RGB颜色(16进制)
-#define TFY_RGB_HEX(rgbValue, a) \
-[UIColor colorWithRed:((CGFloat)((rgbValue & 0xFF0000) >> 16)) / 255.0 \
-green:((CGFloat)((rgbValue & 0xFF00) >> 8)) / 255.0 \
-blue:((CGFloat)(rgbValue & 0xFF)) / 255.0 alpha:(a)]
+// 屏幕安全区域下边距
+#define TFY_BOTTOM_MARGIN \
+({CGFloat safeBottomHeight = 0;\
+if (@available(iOS 11.0, *)) {\
+safeBottomHeight = TFYGetKeyWindow().safeAreaInsets.bottom;\
+}\
+(safeBottomHeight);})
 
-#define TFY_IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define TFY_IS_PAD (UI_USER_INTERFACE_IDIOM()== UIUserInterfaceIdiomPad)
-
-// 等比例适配系数
-#define TFY_kScaleFit (TFY_IS_IPHONE ? ((TFY_SCREEN_WIDTH < TFY_SCREEN_HEIGHT) ? TFY_SCREEN_WIDTH / 375.0f : TFY_SCREEN_WIDTH / 667.0f) : 1.1f)
-
-#define TFY_kPickerHeight 280
-#define TFY_kTopViewHeight 44
-
-// 状态栏的高度(20 / 44(iPhoneX))
-#define TFY_STATUSBAR_HEIGHT ([UIApplication sharedApplication].statusBarFrame.size.height)
-#define TFY_IS_iPhoneX ((TFY_STATUSBAR_HEIGHT == 44) ? YES : NO)
-// 底部安全区域远离高度
-#define TFY_BOTTOM_MARGIN ((CGFloat)(TFY_IS_iPhoneX ? 34 : 0))
-
-// 默认主题颜色
-#define TFY_kDefaultThemeColor TFY_RGB_HEX(0x464646, 1.0)
-// topView视图的背景颜色
-#define TFY_kBRToolBarColor TFY_RGB_HEX(0xFDFDFD, 1.0f)
 
 // 静态库中编写 Category 时的便利宏，用于解决 Category 方法从静态库中加载需要特别设置的问题
-#ifndef TFY_SYNTH_DUMMY_CLASS
+#ifndef TFYSYNTH_DUMMY_CLASS
 
-#define TFY_SYNTH_DUMMY_CLASS(_name_) \
-@interface TFY_SYNTH_DUMMY_CLASS_ ## _name_ : NSObject @end \
-@implementation TFY_SYNTH_DUMMY_CLASS_ ## _name_ @end
+#define TFYSYNTH_DUMMY_CLASS(_name_) \
+@interface TFYSYNTH_DUMMY_CLASS_ ## _name_ : NSObject @end \
+@implementation TFYSYNTH_DUMMY_CLASS_ ## _name_ @end
 
 #endif
 
+
 // 打印错误日志
-#define TFY_ErrorLog(...) NSLog(@"reason: %@", [NSString stringWithFormat:__VA_ARGS__])
+#ifdef DEBUG
+    #define TFYErrorLog(...) NSLog(@"reason: %@", [NSString stringWithFormat:__VA_ARGS__])
+#else
+    #define TFYErrorLog(...)
+#endif
+
+
+/** RGB颜色(16进制) */
+static inline UIColor *TFY_RGB_HEX(uint32_t rgbValue, CGFloat alpha) {
+    return [UIColor colorWithRed:((CGFloat)((rgbValue & 0xFF0000) >> 16)) / 255.0
+                           green:((CGFloat)((rgbValue & 0xFF00) >> 8)) / 255.0
+                            blue:((CGFloat)(rgbValue & 0xFF)) / 255.0
+                           alpha:(alpha)];
+}
+
+
+/** 获取 keyWindow */
+static inline UIWindow *TFYGetKeyWindow(void) {
+    UIWindow *keyWindow = nil;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000 // 编译时检查SDK版本（兼容不同版本的Xcode，防止编译报错）
+    if (@available(iOS 13.0, *)) { // 运行时检查系统版本（兼容不同版本的系统，防止运行报错）
+        NSSet<UIScene *> *connectedScenes = [UIApplication sharedApplication].connectedScenes;
+        for (UIScene *scene in connectedScenes) {
+            if (scene.activationState == UISceneActivationStateForegroundActive && [scene isKindOfClass:[UIWindowScene class]]) {
+                UIWindowScene *windowScene = (UIWindowScene *)scene;
+                for (UIWindow *window in windowScene.windows) {
+                    if (window.isKeyWindow) {
+                        keyWindow = window;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+#endif
+    if (!keyWindow) {
+        keyWindow = [UIApplication sharedApplication].windows.firstObject;
+        if (!keyWindow.isKeyWindow) {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 130000
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            if (CGRectEqualToRect(window.bounds, UIScreen.mainScreen.bounds)) {
+                keyWindow = window;
+            }
+#endif
+        }
+    }
+    return keyWindow;
+}
+
 
 #endif /* TFY_PickerViewMacro_h */
