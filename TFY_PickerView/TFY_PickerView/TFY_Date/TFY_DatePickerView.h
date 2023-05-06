@@ -5,18 +5,7 @@
 //  Created by 田风有 on 2019/5/17.
 //  Copyright © 2019 恋机科技. All rights reserved.
 //  使用方法
-/*
- 第一种
- [TFY_DatePickerView showDatePickerWithTitle:@"选择" dateType:TFY_DatePickerModeYMDHM defaultSelValue:@"" resultBlock:^(NSString * _Nonnull selectValue) {
- NSLog(@"时间选择器1---%@",selectValue);
- }];
- 第二种
- NSDate *minDate = [NSDate tfy_setHour:8 minute:10];
- NSDate *maxDate = [NSDate tfy_setHour:20 minute:35];
- [TFY_DatePickerView showDatePickerWithTitle:@"选择" dateType:TFY_DatePickerModeDateAndTime defaultSelValue:@"" minDate:minDate maxDate:maxDate isAutoSelect:YES themeColor:[UIColor blackColor] resultBlock:^(NSString * _Nonnull selectValue) {
- NSLog(@"时间选择器2---%@",selectValue);
- }];
- */
+
 
 #import "TFY_BaseView.h"
 #import "NSDate+TFY_PickerView.h"

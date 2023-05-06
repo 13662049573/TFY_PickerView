@@ -95,7 +95,7 @@ typedef NS_ENUM(NSInteger, TFYDatePickerStyle) {
                        maxDate:(NSDate *)maxDate
                   isAutoSelect:(BOOL)isAutoSelect
                    resultBlock:(TFYDateResultBlock)resultBlock {
-    [self showDatePickerWithMode:mode title:title selectValue:selectValue minDate:nil maxDate:nil isAutoSelect:isAutoSelect resultBlock:resultBlock resultRangeBlock:nil];
+    [self showDatePickerWithMode:mode title:title selectValue:selectValue minDate:minDate maxDate:maxDate isAutoSelect:isAutoSelect resultBlock:resultBlock resultRangeBlock:nil];
 }
 
 #pragma mark - 4.显示日期选择器
