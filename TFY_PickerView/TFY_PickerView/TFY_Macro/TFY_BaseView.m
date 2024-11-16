@@ -9,8 +9,6 @@
 #import "TFY_BaseView.h"
 
 @interface TFY_BaseView ()
-// 蒙层视图
-@property (nonatomic, strong) UIView *maskView;
 // 标题栏背景视图
 @property (nonatomic, strong) UIView *titleBarView;
 // 左边取消按钮
@@ -29,14 +27,14 @@
 @implementation TFY_BaseView
 
 - (void)initUI {
+    self.backgroundColor = self.pickerStyle.maskColor;
     self.frame = self.keyView.bounds;
+    self.userInteractionEnabled = YES;
+    UITapGestureRecognizer *myTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapMaskView:)];
+    [self addGestureRecognizer:myTap];
     // 设置子视图的宽度随着父视图变化
     self.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    if (!self.pickerStyle.hiddenMaskView) {
-        [self addSubview:self.maskView];
-    }
-    
+   
     [self addSubview:self.alertView];
     
     // 是否隐藏标题栏
@@ -99,20 +97,6 @@
         // 设置顶部圆角
         [TFY_PickerStyle picker_setView:_alertView roundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight withRadius:self.pickerStyle.topCornerRadius];
     }
-}
-
-#pragma mark - 蒙层视图
-- (UIView *)maskView {
-    if (!_maskView) {
-        _maskView = [[UIView alloc]initWithFrame:self.keyView.bounds];
-        _maskView.backgroundColor = self.pickerStyle.maskColor;
-        // 设置子视图的大小随着父视图变化
-        _maskView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _maskView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *myTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapMaskView:)];
-        [_maskView addGestureRecognizer:myTap];
-    }
-    return _maskView;
 }
 
 #pragma mark - 弹框视图

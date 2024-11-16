@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFY_PickerView"
 
-  spec.version      = "2.8.1"
+  spec.version      = "2.8.2"
 
   spec.summary      = "时间选择器，多种选择模式，适合多种选择"
 
@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
  
   spec.author       = { "tianfengyou" => "420144542@qq.com" }
   
-  spec.platform     = :ios, "12.0"
+  spec.platform     = :ios, "14.0"
   
   spec.source       = { :git => "https://github.com/13662049573/TFY_PickerView.git", :tag => spec.version }
 
